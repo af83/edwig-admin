@@ -1,9 +1,11 @@
 class EdwigAdminController < ApplicationController
     
-    before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
-  	def index
-  	end
+
+  def index
+  	
+  end
 
 	def show
 
@@ -15,17 +17,17 @@ class EdwigAdminController < ApplicationController
 
 	def create
 
-  	end
+  end
 
-  	def edit
+  def edit
 
-  	end
+  end
 
-  	def update
+  def update
 
-  	end
+  end
 
-  	def destroy
+  def destroy
 
-  	end
+  end
 end
