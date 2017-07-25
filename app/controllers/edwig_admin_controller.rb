@@ -4,18 +4,18 @@ class EdwigAdminController < ApplicationController
 
 
   def index
-  	
+
   end
 
-	def show
+  def show
 
-	end
+  end
 
-	def new
+  def new
 
-	end
+  end
 
-	def create
+  def create
 
   end
 
