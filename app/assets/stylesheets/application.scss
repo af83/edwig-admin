@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*Application*/
+
+body{
+  background-color: white;
+  font-family: times;
+}
+
+.nav-wrapper{
+  min-height: 70px;
+}
+
+#spySetUp{
+  position: relative;
+}
+
+.li .navButton{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.li .navButton:after{
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.li:hover .navButton{
+  padding: 25px;
+  display: inline-block;
+}
+
+.li:hover .navButton:after{
+  opacity: 1;
+  right: 0;
+}
+
+#title:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#title:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#title:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#title:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/*index*/
+
+#header{
+  text-align: center;
+  font-size: 60px;
+}
+
+	
