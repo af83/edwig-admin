@@ -1,24 +1,20 @@
-# README
+# Edwig_admin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 2.2.6
 
-Things you may want to cover:
+##Installation
 
-* Ruby version
+###Application
 
-* System dependencies
+```git clone git@github.com:af83/Edwig-admin.git
+cd Edwig-adminè```
 
-* Configuration
+###Postgresql
 
-* Database creation
+```psql
+CREATE USER "edwig_admin" SUPERUSER PASSWORD 'edwig_admin';
+CREATE ROLE
+CREATE DATABASE "edwig_admin"
+CREATE DATABASE```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Database configuration can be defined in config/database.yml
