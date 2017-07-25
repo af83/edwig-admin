@@ -15,3 +15,6 @@
 
 # Ignore local file uploads
 /public/uploads/
+
+# Ignore IntelliJ IDEA file cache
+/.idea

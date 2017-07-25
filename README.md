@@ -15,9 +15,7 @@ cd Edwig-admin
 
 ```psql
 CREATE USER "edwig_admin" SUPERUSER PASSWORD 'edwig_admin';
-CREATE ROLE
-CREATE DATABASE "edwig_admin"
-CREATE DATABASE
+CREATE DATABASE "edwig_admin";
 ```
 
 Database configuration can be defined in config/database.yml
