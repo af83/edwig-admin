@@ -1,2 +1,3 @@
 # Edwig-admin
-Font admin d'edwig
+
+Admin page to create, modify and delete referentials and partners
