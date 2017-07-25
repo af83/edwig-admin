@@ -2,19 +2,22 @@
 
 Ruby 2.2.6
 
-##Installation
+## Installation
 
-###Application
+### Application
 
-```git clone git@github.com:af83/Edwig-admin.git
-cd Edwig-adminè```
+```
+git clone git@github.com:af83/Edwig-admin.git
+cd Edwig-admin
+```
 
-###Postgresql
+### Postgresql
 
 ```psql
 CREATE USER "edwig_admin" SUPERUSER PASSWORD 'edwig_admin';
 CREATE ROLE
 CREATE DATABASE "edwig_admin"
-CREATE DATABASE```
+CREATE DATABASE
+```
 
 Database configuration can be defined in config/database.yml
