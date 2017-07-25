@@ -3424,3 +3424,463 @@ app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise
   Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.2ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:09:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "b71384631ebee0ef7b2481d6c2019485a1fbcd7b415b38e4ee1de287a760af3c"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "b71384631ebee0ef7b2481d6c2019485a1fbcd7b415b38e4ee1de287a760af3c"], ["invitation_created_at", "2017-07-25 10:09:43.794250"], ["invitation_sent_at", "2017-07-25 10:09:43.794250"], ["updated_at", "2017-07-25 10:09:43.795769"], ["id", 2]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (2.9ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 372.7ms
+Completed 500 Internal Server Error in 566ms (ActiveRecord: 6.9ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__2318398585065105534_69887355270540'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.1ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.0ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:10:48 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "a94f001cd9737d1dd6cfac1856a888117a480c4ac5515c2665344b9ced61d26c"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "a94f001cd9737d1dd6cfac1856a888117a480c4ac5515c2665344b9ced61d26c"], ["invitation_created_at", "2017-07-25 10:10:48.543111"], ["invitation_sent_at", "2017-07-25 10:10:48.543111"], ["updated_at", "2017-07-25 10:10:48.544448"], ["id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (486.5ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 492.4ms
+Completed 500 Internal Server Error in 506ms (ActiveRecord: 3.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x007f1fd5f85e70>:0x000000048d17c0>):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_path) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__2318398585065105534_38212940'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:15:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "59ec86902944c8991aa7a6f7f6f00b9d6b935fdf5ba8bcf2855ca651d957a846"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "59ec86902944c8991aa7a6f7f6f00b9d6b935fdf5ba8bcf2855ca651d957a846"], ["invitation_created_at", "2017-07-25 10:15:19.070946"], ["invitation_sent_at", "2017-07-25 10:15:19.070946"], ["updated_at", "2017-07-25 10:15:19.072289"], ["id", 2]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (3.7ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 373.7ms
+Completed 500 Internal Server Error in 568ms (ActiveRecord: 7.1ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::EdwigAdmin_path):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: EdwigAdmin_path) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__1448376583433921061_70159615938600'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.8ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.6ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:19:34 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "5618544065cc18280912edd5e8866dfc77be6396c37bb4bdb7c722cd05a9bc62"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "5618544065cc18280912edd5e8866dfc77be6396c37bb4bdb7c722cd05a9bc62"], ["invitation_created_at", "2017-07-25 10:19:34.794065"], ["invitation_sent_at", "2017-07-25 10:19:34.794065"], ["updated_at", "2017-07-25 10:19:34.796523"], ["id", 2]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (2.7ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 14.1ms
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 4.9ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__1448376583433921061_43107060'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.8ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.8ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:38:35 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "4302ad622bc4246498838ce93f2edec7d5b0c1a22dba8e2805d93467d83143dc"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "4302ad622bc4246498838ce93f2edec7d5b0c1a22dba8e2805d93467d83143dc"], ["invitation_created_at", "2017-07-25 10:38:35.952601"], ["invitation_sent_at", "2017-07-25 10:38:35.952601"], ["updated_at", "2017-07-25 10:38:35.953326"], ["id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (1.7ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 7.5ms
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__1448376583433921061_70159605221880'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.8ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.2ms)
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:39:08 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmIaby9UtEAb5UU5yPOGxCA2Q4b9iExWMIUYZ1AjYd73pD9JvYP8DGKXyX6qEg2NAyE3LAVs/oefiwKr7oZtKg==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "3f777eb7a066434499c83d9c2fa916e4aca7a25add530639e90bc8d64badf223"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "3f777eb7a066434499c83d9c2fa916e4aca7a25add530639e90bc8d64badf223"], ["invitation_created_at", "2017-07-25 10:39:08.522047"], ["invitation_sent_at", "2017-07-25 10:39:08.522047"], ["updated_at", "2017-07-25 10:39:08.524222"], ["id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (3.1ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 20.1ms
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    1: <p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
+    2: 
+    3: <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
+    4: 
+    5: <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+    6: 
+  
+app/views/devise/mailer/invitation_instructions.html.erb:3:in `_app_views_devise_mailer_invitation_instructions_html_erb__1448376583433921061_70159611984540'
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.5ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.2.0/gems/actionpack-5.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.6ms)
+Started GET "/index" for 127.0.0.1 at 2017-07-25 12:45:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:EdwigAdminController> at /home/vincent/Edwig-admin/app/controllers/edwig_admin_controller.rb:3)
+Processing by EdwigAdminController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering edwig_admin/index.html.erb within layouts/application
+  Rendered edwig_admin/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 216ms (Views: 187.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/invitation/new" for 127.0.0.1 at 2017-07-25 12:45:23 +0200
+Processing by Devise::InvitationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/invitations/new.html.erb within layouts/application
+  Rendered devise/invitations/new.html.erb within layouts/application (493.9ms)
+Completed 200 OK in 520ms (Views: 517.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 12:45:33 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4iCU8IrgoJz1P+/ZoOZOWKJgZ3ilirV2scvOk1IZdRqr5rHWGDfo0IxNY57CB8URgXcT0l1uB6cexdRf7Lx57g==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "6a651bba33bdde462c563e4860df7bc1971c448de5b7a0b6f6c1b6bc6b0eaf04"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "6a651bba33bdde462c563e4860df7bc1971c448de5b7a0b6f6c1b6bc6b0eaf04"], ["invitation_created_at", "2017-07-25 10:45:34.135315"], ["invitation_sent_at", "2017-07-25 10:45:34.135315"], ["updated_at", "2017-07-25 10:45:34.136674"], ["id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (1.2ms)
+  Rendering devise/mailer/invitation_instructions.text.erb
+  Rendered devise/mailer/invitation_instructions.text.erb (3.2ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 109.8ms
+Sent mail to vincent.marie@af83.com (7.5ms)
+Date: Tue, 25 Jul 2017 12:45:34 +0200
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: vincent.marie@af83.com
+Message-ID: <5977214e3eac8_29852106b64329f9@vlatka-ThinkPad.mail>
+Subject: Invitation instructions
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5977214e3d6b8_29852106b643286f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5977214e3d6b8_29852106b643286f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hello vincent.marie@af83.com
+
+Someone has invited you to http://localhost:3000/, you can accept it through the link below.
+
+http://localhost:3000/users/invitation/accept?invitation_token=e26zgNyc11xePgAbhLDB
+
+
+If you don't want to accept the invitation, please ignore this email.
+Your account won't be created until you access the link above and set your password.
+
+----==_mimepart_5977214e3d6b8_29852106b643286f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello vincent.marie@af83.com</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=e26zgNyc11xePgAbhLDB">Accept invitation</a></p>
+
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>
+
+----==_mimepart_5977214e3d6b8_29852106b643286f--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 304ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-25 12:45:34 +0200
+Processing by EdwigAdminController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering edwig_admin/index.html.erb within layouts/application
+  Rendered edwig_admin/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-25 13:02:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:EdwigAdminController> at /home/vincent/Edwig-admin/app/controllers/edwig_admin_controller.rb:3)
+Processing by EdwigAdminController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering edwig_admin/index.html.erb within layouts/application
+  Rendered edwig_admin/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1804ms (Views: 1774.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/invitation/new" for 127.0.0.1 at 2017-07-25 13:02:19 +0200
+Processing by Devise::InvitationsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/invitations/new.html.erb within layouts/application
+  Rendered devise/invitations/new.html.erb within layouts/application (454.7ms)
+Completed 200 OK in 488ms (Views: 484.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 13:02:25 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vZyLpciMORK79lF1l3uromeOGdWeG4sFJb7jBOteHs30Wq6DWltxXsKE3TL1miDrRJltf2b/OdSKsPnIVfsSOQ==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "58e49984bc763ea27e2baccd8cd9a72423c0816b8854690c9526adde462c02fd"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "58e49984bc763ea27e2baccd8cd9a72423c0816b8854690c9526adde462c02fd"], ["invitation_created_at", "2017-07-25 11:02:26.172890"], ["invitation_sent_at", "2017-07-25 11:02:26.172890"], ["updated_at", "2017-07-25 11:02:26.174582"], ["id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (1.5ms)
+  Rendering devise/mailer/invitation_instructions.text.erb
+  Rendered devise/mailer/invitation_instructions.text.erb (2.0ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 97.6ms
+Sent mail to vincent.marie@af83.com (6.4ms)
+Date: Tue, 25 Jul 2017 13:02:26 +0200
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: vincent.marie@af83.com
+Message-ID: <5977254244d3d_2c391e604788362d@vlatka-ThinkPad.mail>
+Subject: Invitation instructions
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5977254243b82_2c391e6047883581";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5977254243b82_2c391e6047883581
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hello vincent.marie@af83.com
+
+Someone has invited you to http://localhost:3000/, you can accept it through the link below.
+
+http://localhost:3000/users/invitation/accept?invitation_token=arGnrPngcawykkB2YQCY
+
+
+If you don't want to accept the invitation, please ignore this email.
+Your account won't be created until you access the link above and set your password.
+
+----==_mimepart_5977254243b82_2c391e6047883581
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello vincent.marie@af83.com</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=arGnrPngcawykkB2YQCY">Accept invitation</a></p>
+
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>
+
+----==_mimepart_5977254243b82_2c391e6047883581--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 292ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-25 13:02:26 +0200
+Processing by EdwigAdminController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering edwig_admin/index.html.erb within layouts/application
+  Rendered edwig_admin/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/invitation/new" for 127.0.0.1 at 2017-07-25 13:22:40 +0200
+Processing by Devise::InvitationsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/invitations/new.html.erb within layouts/application
+  Rendered devise/invitations/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 35ms (Views: 32.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/invitation" for 127.0.0.1 at 2017-07-25 13:22:44 +0200
+Processing by Devise::InvitationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVonASKKGULtPNPMRSIjNCvjdSZsAt9OLohNAPFgCdNUnAInsF1RDpROX4snw6h9CPQBjJTmbZ+BhlfMT8UFJw==", "user"=>{"email"=>"vincent.marie@af83.com"}, "commit"=>"Send an invitation"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "vincent.marie@af83.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."invitation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["invitation_token", "8e95a23732ab3b3cdbc7c072096766a9a8e43ad0d1b07f9bfa76c1cf19547dc5"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["invitation_token", "8e95a23732ab3b3cdbc7c072096766a9a8e43ad0d1b07f9bfa76c1cf19547dc5"], ["invitation_created_at", "2017-07-25 11:22:44.485737"], ["invitation_sent_at", "2017-07-25 11:22:44.485737"], ["updated_at", "2017-07-25 11:22:44.487426"], ["id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/invitation_instructions.html.erb
+  Rendered devise/mailer/invitation_instructions.html.erb (1.8ms)
+  Rendering devise/mailer/invitation_instructions.text.erb
+  Rendered devise/mailer/invitation_instructions.text.erb (1.9ms)
+Devise::Mailer#invitation_instructions: processed outbound mail in 19.3ms
+Sent mail to vincent.marie@af83.com (5.0ms)
+Date: Tue, 25 Jul 2017 13:22:44 +0200
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: vincent.marie@af83.com
+Message-ID: <59772a047da46_2c391e6025c838eb@vlatka-ThinkPad.mail>
+Subject: Invitation instructions
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59772a047c96a_2c391e6025c83735";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59772a047c96a_2c391e6025c83735
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hello vincent.marie@af83.com
+
+Someone has invited you to http://localhost:3000/, you can accept it through the link below.
+
+http://localhost:3000/users/invitation/accept?invitation_token=2WsEc5qg_yaxq4kx1hyx
+
+
+If you don't want to accept the invitation, please ignore this email.
+Your account won't be created until you access the link above and set your password.
+
+----==_mimepart_59772a047c96a_2c391e6025c83735
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello vincent.marie@af83.com</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=2WsEc5qg_yaxq4kx1hyx">Accept invitation</a></p>
+
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>
+
+----==_mimepart_59772a047c96a_2c391e6025c83735--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-25 13:22:44 +0200
+Processing by EdwigAdminController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering edwig_admin/index.html.erb within layouts/application
+  Rendered edwig_admin/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
