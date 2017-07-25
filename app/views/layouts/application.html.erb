@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-	  <title>Edwig-Admin</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset=utf-8>
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	  <%= csrf_meta_tags %>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-	</head>
+  <head>
+    <title>Edwig-Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset=utf-8>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  </head>
 
-	<body class="container-fluid">
-		<div class="row">
-		  <div name="navbar">
-				<div class="col-xs-*">
-				  <div class="nav-wrapper">
-					  <nav style="border-radius: 0; width: 100%; top: 0px; z-index: 3; background-color: #4d9933;"  class="navbar nav-wrapper container-fluid" role="navigation" data-spy="affix" data-offset-top="700">
-				      <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse">
-				      </button>
-						  <div style="font-size: 50px; color: white; font-family: times;" class="navbar navbar-brand">Edwig-Admin</div>
-						  <% if user_signed_in? %>
-				        <div class="nav navbar-nav navbar-right">
-				          <%= link_to('Invite', new_user_invitation_path, class: "btn btn-default")%>	
-				          <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default navbar-btn glyphicon glyphicon-log-out") %>
-				        </div>
-				      <% end %>
-				    </nav>
-					</div>  	
-			  </div>
-			</div>
-		</div>
-		<div>
-	    <%= yield %>
-	  </div>
-	</body>
+  <body class="container-fluid">
+    <div class="row">
+      <div name="navbar">
+        <div class="col-xs-*">
+          <div class="nav-wrapper">
+            <nav style="border-radius: 0; width: 100%; top: 0px; z-index: 3; background-color: #4d9933;"  class="navbar nav-wrapper container-fluid" role="navigation" data-spy="affix" data-offset-top="700">
+              <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse"></button>
+              <div style="font-size: 50px; color: white; font-family: times;" class="navbar navbar-brand">Edwig-Admin</div>
+              <% if user_signed_in? %>
+                <div class="nav navbar-nav navbar-right">
+                  <%= link_to('Invite', new_user_invitation_path, class: "btn btn-default")%>	
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default navbar-btn glyphicon glyphicon-log-out") %>
+                </div>
+              <% end %>
+            </nav>
+          </div>  	
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+  </body>
 </html>

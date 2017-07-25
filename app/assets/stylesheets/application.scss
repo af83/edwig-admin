@@ -19,72 +19,72 @@
 
 /*Application*/
 
-	body{
-		background-color: white;
-		font-family: times;
-	}
+body{
+  background-color: white;
+  font-family: times;
+}
 
-	.nav-wrapper{
-		min-height: 70px;
-	}
+.nav-wrapper{
+  min-height: 70px;
+}
 
-	#spySetUp{
-		position: relative;
-	}
+#spySetUp{
+  position: relative;
+}
 
-	.li .navButton{
-		cursor: pointer;
-		display: inline-block;
-		position: relative;
-		transition: 0.5s;
-	}
+.li .navButton{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-	.li .navButton:after{
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		transition: 0.5s;
-	}
+.li .navButton:after{
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  transition: 0.5s;
+}
 
-	.li:hover .navButton{
-		padding: 25px;
-		display: inline-block;
-	}
+.li:hover .navButton{
+  padding: 25px;
+  display: inline-block;
+}
 
-	.li:hover .navButton:after{
-		opacity: 1;
-	  	right: 0;
-	}
+.li:hover .navButton:after{
+  opacity: 1;
+  right: 0;
+}
 
-	#title:link {
-		color: white;
-		background-color: transparent;
-		text-decoration: none;
-	}
+#title:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
 
-	#title:visited {
-		color: white;
-		background-color: transparent;
-		text-decoration: none;
-	}
+#title:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
 
-	#title:hover {
-		    color: white;
-		    background-color: transparent;
-		    text-decoration: none;
-	}
+#title:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
 
-	#title:active {
-		color: white;
-		background-color: transparent;
-		text-decoration: none;
-	}
+#title:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
 
 /*index*/
 
-	#header{
-		text-align: center;
-		font-size: 60px;
-	}
+#header{
+  text-align: center;
+  font-size: 60px;
+}
 
 	
