@@ -25,6 +25,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.3'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
