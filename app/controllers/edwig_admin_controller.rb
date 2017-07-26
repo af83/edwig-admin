@@ -1,33 +1,37 @@
 class EdwigAdminController < ApplicationController
-    
-  before_filter :authenticate_user!
+    require 'rest-client'
+    require 'json'
+    before_filter :authenticate_user!
 
 
-  def index
+    def index
+        referentials = RestClient.get("http://localhost:8080/_referentials", {content_type: :json, :Authorization => "Token token=6ceab96a-8d97-4f2a-8d69-32569a38fc64"})
+        @referentialsTab = JSON.parse(referentials)
 
-  end
+        #referentialsTab.each {|referential| puts referential}
+    end
 
-  def show
+    def show
 
-  end
+    end
 
-  def new
+    def new
 
-  end
+    end
 
-  def create
+    def create
 
-  end
+    end
 
-  def edit
+    def edit
 
-  end
+    end
 
-  def update
+    def update
 
-  end
+    end
 
-  def destroy
+    def destroy
 
-  end
+    end
 end
