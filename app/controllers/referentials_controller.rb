@@ -6,6 +6,7 @@ class ReferentialsController < ApplicationController
   def index
     referentials = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     @referentials_tab = JSON.parse(referentials)
+    @referentials_tab.sort_by! {|referential| referential["Slug"]}
   end
 
   def show

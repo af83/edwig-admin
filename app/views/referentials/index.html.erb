@@ -29,7 +29,7 @@
                   <td><%= i["NextReloadAt"] %></td>
                   <td><%= i["Tokens"][0] %></td>
                   <td align="center">
-                    <%= link_to (raw("<em class=\"fa fa fa-eye\"></em>")), referential_partners_path(i["Id"]), class: "btn btn-default" %>
+                    <%= link_to (raw("<em class=\"fa fa fa-eye\"></em>")), referential_partners_path(i["Slug"], token: i["Tokens"][0]), class: "btn btn-default" %>
                     <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
                     <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
                   </td>
