@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root "referentials#index"
+    devise_for :users
 
-  root "edwig_admin#index"
+    resources :referentials do
+        resources :partners, only: :index
+    end
 end
