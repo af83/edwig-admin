@@ -27,9 +27,21 @@
                 <tr>
                   <td class="hidden-xs"><%= i["Id"] %></td>
                   <td><%= i["Slug"] %></td>
-                  <td><%= i["PartnerStatus"]%></td>
-                  <td><%= i["ConnectorTypes"]%></td>
-                  <td><%= i["Settings"]%></td>
+                  <td>
+                  	<% i["PartnerStatus"].each do |key, value|%> 
+                  		<%= ">#{key}: #{value}" %><br>
+                  	<%end%>
+                  </td>
+                  <td>
+                  	<% i["ConnectorTypes"].each do |connector|%>
+                  		<%= ">#{connector}" %><br>
+                  	<% end %>
+                  </td>
+                  <td>
+                  	<% i["Settings"].each do |key, value|%>
+                  		<%= ">#{key}: #{value}" %><br>
+                  	<% end %>
+                  </td>
                   <td align="center">
                     <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
                     <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
