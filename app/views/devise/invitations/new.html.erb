@@ -1,12 +1,21 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to (raw("<em class=\"fa fa-arrow-left \"></em>")), referentials_path, class: "btn btn-default", "id"=>"backButton" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+  	<h2><%= t "devise.invitations.new.header" %></h2>
 
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
-  <%= devise_error_messages! %>
+  	<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  	  <%= devise_error_messages! %>
 
-<% resource.class.invite_key_fields.each do |field| -%>
-  <p><%= f.label field %><br />
-  <%= f.text_field field %></p>
-<% end -%>
+  	<% resource.class.invite_key_fields.each do |field| -%>
+  	  <p><%= f.label field %><br />
+  	  <%= f.text_field field, class: "form-control" %></p>
+  	<% end -%>
 
-  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
-<% end %>
+  	  <p><%= f.submit t("devise.invitations.new.submit_button"), class: "btn btn-default" %></p>
+  	<% end %>
+  </div>
+</div>
