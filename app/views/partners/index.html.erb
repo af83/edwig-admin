@@ -1,12 +1,17 @@
 <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to (raw("<em class=\"fa fa-arrow-left \"></em>")), referentials_path, class: "btn btn-default", "id"=>"backButton" %>
+		</div>
+	</div>
   <div class="row">
-    <h1 class="text-center">Choisissez un Referential</h1>
+    <h1 class="text-center">Partners</h1>
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
           <div class="row">
-            <div class="col col-xs-6">
-              <button type="button" class="btn btn-sm btn-primary btn-create">Create New Referential</button>
+            <div class="col-md-12">
+              <button type="button" class="btn btn-sm btn-primary btn-create newButton">Create New Referential</button>
             </div>
           </div>
         </div>
