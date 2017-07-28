@@ -5,7 +5,7 @@
 		</div>
 	</div>
   <div class="row">
-    <h1 class="text-center">Partners</h1>
+    <h1 class="text-center">Liste des Partners</h1>
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
@@ -33,7 +33,7 @@
                   <td class="hidden-xs"><%= i["Id"] %></td>
                   <td><%= i["Slug"] %></td>
                   <td>
-                  	<% i["PartnerStatus"].each do |key, value|%> 
+                  	<% i["PartnerStatus"].each do |key, value|%>
                   		<%= ">#{key}: #{value}" %><br>
                   	<%end%>
                   </td>
