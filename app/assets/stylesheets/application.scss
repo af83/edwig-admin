@@ -81,7 +81,15 @@ nav{
 
 /*index*/
 
+.newButton{
+  float: right;
+}
+
 #header{
   text-align: center;
   font-size: 60px;
+}
+
+#backButton{
+  border-radius: 100%
 }
