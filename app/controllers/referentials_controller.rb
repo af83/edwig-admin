@@ -14,8 +14,7 @@ class ReferentialsController < ApplicationController
   end
 
   def partners
-    partners = RestClient.get("http://localhost:8080/#{@referentials_tab["Slug"]}", {content_type: :json, :Authorization => "Token token=#{@referentials_tab["Token"]}"})
-    @partners_tab = JSON.parse(partners)
+
   end
 
   def new
@@ -35,6 +34,7 @@ class ReferentialsController < ApplicationController
   end
 
   def destroy
-
+    destroy_referentials = RestClient.delete("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:slug]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    redirect_to referentials_path
   end
 end
