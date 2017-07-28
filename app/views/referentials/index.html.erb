@@ -35,7 +35,8 @@
                   <td><%= i["Tokens"][0] %></td>
                   <td align="center">
                     <%= link_to (raw("<em class=\"fa fa fa-eye\"></em>")), referential_partners_path(i["Slug"], token: i["Tokens"][0]), class: "btn btn-default" %>
-                    <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+
+                    <%= link_to (raw("<em class=\"fa fa fa-pencil\"></em>")), edit_referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"]}), :class => "btn btn-default" %>
                     <%= link_to (raw("<em class=\"fa fa-trash\"></em>")), referential_path(i["Id"]), :method=>'delete', :confirm=>'Are you sure you want to delete this referential_path ?', class: "btn btn-danger"%>
                   </td>
                 </tr>

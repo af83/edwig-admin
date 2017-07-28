@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to (raw("<em class=\"fa fa-arrow-left \"></em>")), referentials_path, class: "btn btn-default", "id"=>"backButton" %>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="text-center">Editez un Referential</h1>
+    <div class="col-md-3 col-xs-6">
+      <%= form_tag referential_path(slug: @referential_slug), method: :patch do %>
+      <div class="form-group">
+        <%= label_tag :slug %>
+        <%= text_field_tag :slug, nil, placeholder: @referential_slug, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :token %>
+        <%= text_field_tag :token, nil, placeholder: @referential_token, class: "form-control"%>
+      </div>
+
+      <%= hidden_field_tag :id, @referential_id %>
+      <%= hidden_field_tag :old_token, @referential_token %>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-xs" type="submit">Edit</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
