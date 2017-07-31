@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :referentials, param: :slug do
-    resources :partners, only: :index
+    resources :partners, param: :id
   end
 end

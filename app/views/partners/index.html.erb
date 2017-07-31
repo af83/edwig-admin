@@ -5,7 +5,7 @@
 		</div>
 	</div>
   <div class="row">
-    <h1 class="text-center">Partners</h1>
+    <h1 class="text-center">Liste des Partners</h1>
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
@@ -33,7 +33,7 @@
                   <td class="hidden-xs"><%= i["Id"] %></td>
                   <td><%= i["Slug"] %></td>
                   <td>
-                  	<% i["PartnerStatus"].each do |key, value|%> 
+                  	<% i["PartnerStatus"].each do |key, value|%>
                   		<%= ">#{key}: #{value}" %><br>
                   	<%end%>
                   </td>
@@ -49,7 +49,7 @@
                   </td>
                   <td align="center">
                     <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                    <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                    <%= link_to (raw("<em class=\"fa fa-trash\"></em>")), referential_partner_path(id: i["Id"], slug: @referential_slug, token: @referential_token), :method=>'delete', :confirm=>'Are you sure you want to delete this referential_path ?', class: "btn btn-danger"%>
                   </td>
                 </tr>
             <% end %>
