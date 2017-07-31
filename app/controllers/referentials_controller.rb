@@ -28,7 +28,7 @@ class ReferentialsController < ApplicationController
   def edit
     @referential_id = params[:id]
     @referential_slug = params[:slug]
-    @referential_nextreloadedat = params[:nextreloadedat]
+    @referential_next_reload_at = params[:next_reload_at]
     @referential_token = params[:token]
   end
 
@@ -36,7 +36,7 @@ class ReferentialsController < ApplicationController
     attributes =
     {
       Slug: params[:new_slug],
-      NextReloadAt: params[:nextreloadedat],
+      NextReloadAt: params[:next_reload_at],
       Tokens: [params[:token]]
     }
     edit_referentials = RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
