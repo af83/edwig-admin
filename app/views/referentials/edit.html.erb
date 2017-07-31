@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= link_to (raw("<em class=\"fa fa-arrow-left \"></em>")), referentials_path, class: "btn btn-default", "id"=>"backButton" %>
+      <%= link_to referentials_path,
+                  class: 'btn btn-default back-button' do %>
+          <em class="fa fa-arrow-left"></em>
+      <% end %>
     </div>
   </div>
   <div class="row">
