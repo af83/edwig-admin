@@ -17,6 +17,12 @@ nav{
   background-color: #4d9933;
 }
 
+.btn-primary {
+  a:visited {
+    color: #FFFFFF !important;
+  }
+}
+
 .li .navButton{
   cursor: pointer;
   display: inline-block;
