@@ -18,11 +18,18 @@ class ReferentialsController < ApplicationController
   end
 
   def new
-
+    @referential_slug = params[:slug]
+    @referential_token = params[:token]
   end
 
   def create
-
+    attributes =
+      {
+        Slug: params[:new_slug],
+        Tokens: [params[:token]]
+      }
+    create_referentials = RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    redirect_to referentials_path
   end
 
   def edit

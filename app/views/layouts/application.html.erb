@@ -18,13 +18,13 @@
               <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse"></button>
               <div class="navbar navbar-brand">Edwig-Admin</div>
               <% if user_signed_in? %>
-                <div class="nav navbar-nav navbar-right">
-                  <%= link_to('Invite', new_user_invitation_path, class: "btn btn-default navbar-btn glyphicon glyphicon-envelope")%>	
-                  <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default navbar-btn glyphicon glyphicon-log-out") %>
+                <div class="nav navbar-nav pull-right">
+                  <%= link_to('Invite', new_user_invitation_path, class: "btn btn-primary navbar-btn glyphicon glyphicon-envelope")%>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger navbar-btn glyphicon glyphicon-log-out") %>
                 </div>
               <% end %>
             </nav>
-          </div>  	
+          </div>
         </div>
       </div>
     </div>
