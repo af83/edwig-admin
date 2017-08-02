@@ -19,8 +19,14 @@
               <div class="navbar navbar-brand">Edwig-Admin</div>
               <% if user_signed_in? %>
                 <div class="nav navbar-nav pull-right">
-                  <%= link_to('Invite', new_user_invitation_path, class: "btn btn-primary navbar-btn glyphicon glyphicon-envelope")%>
-                  <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger navbar-btn glyphicon glyphicon-log-out") %>
+                  <%= link_to new_user_invitation_path,
+                              class: 'btn btn-primary navbar-btn' do %>
+                      <em class="fa fa-envelope">&nbsp;Invite</em>
+                  <% end %>
+                  <%= link_to destroy_user_session_path,
+                              class: 'btn btn-danger navbar-btn' do %>
+                      <em class="fa fa-sign-out">&nbsp;Logout</em>
+                  <% end %>
                 </div>
               <% end %>
             </nav>

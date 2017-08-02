@@ -10,25 +10,21 @@
   <div class="row">
     <h1 class="text-center">Editez un Referential</h1>
     <div class="col-md-3 col-xs-6">
-      <%= form_tag referential_path(slug: @referential_slug), method: :put do %>
+      <%= form_tag referential_path(slug: @referential.slug), method: :put do %>
       <div class="form-group">
         <%= label_tag :new_slug %>
-        <%= text_field_tag :new_slug, nil, value: @referential_slug, class: "form-control" %>
+        <%= text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= label_tag :next_reload_at %>
-        <%= text_field_tag :next_reload_at, nil, value: @referential_next_reload_at, class: "form-control"%>
+        <%= text_field_tag :next_reload_at, nil, value: @referential.next_reload_at, class: "form-control"%>
       </div>
 
       <div class="form-group">
         <%= label_tag :token %>
-        <%= text_field_tag :token, nil, value: @referential_token, class: "form-control"%>
+        <%= text_field_tag :token, nil, value: @referential.token, class: "form-control"%>
       </div>
-
-      <%= hidden_field_tag :id, @referential_id %>
-      <%= hidden_field_tag :old_slug, @referential_old_slug %>
-      <%= hidden_field_tag :old_token, @referential_old_token %>
 
       <div class="form-group">
         <button class="btn btn-primary btn-xs" type="submit">Edit</button>

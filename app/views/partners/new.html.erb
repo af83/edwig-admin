@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= link_to referentials_path,
+      <%= link_to referential_partners_path(token: params[:token]),
                   class: 'btn btn-default back-button' do %>
           <em class="fa fa-arrow-left"></em>
       <% end %>
@@ -13,22 +13,31 @@
       <%= form_tag referential_partners_path, method: :post do %>
           <div class="form-group">
             <%= label_tag :partner_slug %>
-            <%= text_field_tag :partner_slug, nil, value: @partner_slug, class: "form-control" %>
-
-            <div class="form-group">
-              <%= label_tag :partner_status %>
-              <%= text_field_tag :partner_status, nil, value: @partner_partner_status, class: "form-control" %>
-            </div>
+            <%= text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control" %>
 
             <div class="form-group">
               <%= label_tag :connector_types %>
-              <%= text_field_tag :connector_types, nil, value: @partner_connector_types, class: "form-control" %>
+              <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
             </div>
 
             <div class="form-group">
-              <%= label_tag :settings %>
-              <%= select_tag(:settings, options_for_select([['horrible'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings , class: "form-control")%>
+              <%= label_tag :settings_remote_url %>
+              <%= text_field_tag :settings_remote_url, nil, value: @partner.settings_remote_url, class: "form-control" %>
+            </div>
 
+            <div class="form-group">
+              <%= label_tag :settings_remote_credential %>
+              <%= select_tag(:settings_remote_credential, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credential , class: "form-control")%>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :settings_local_credential %>
+              <%= select_tag(:settings_local_credential, options_for_select([['SQYBUS'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_local_credential , class: "form-control")%>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :settings_remote_objectid_kind %>
+              <%= select_tag(:settings_remote_objectid_kind, options_for_select([['hastus'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_objectid_kind , class: "form-control")%>
             </div>
 
             <%= hidden_field_tag :referential_slug, @referential_slug %>

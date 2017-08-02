@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'json'
+require 'referential'
 class ReferentialsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -18,8 +19,10 @@ class ReferentialsController < ApplicationController
   end
 
   def new
-    @referential_slug = params[:slug]
-    @referential_token = params[:token]
+    @referential = Referential.new(
+      slug: params[:slug],
+      token: params[:token]
+    )
   end
 
   def create
@@ -33,10 +36,12 @@ class ReferentialsController < ApplicationController
   end
 
   def edit
-    @referential_id = params[:id]
-    @referential_slug = params[:slug]
-    @referential_next_reload_at = params[:next_reload_at]
-    @referential_token = params[:token]
+    @referential = Referential.new(
+      id: params[:id],
+      slug: params[:slug],
+      next_reload_at: params[:next_reload_at],
+      token: params[:token]
+    )
   end
 
   def update

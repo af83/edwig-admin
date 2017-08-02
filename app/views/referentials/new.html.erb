@@ -13,12 +13,12 @@
       <%= form_tag referentials_path, method: :post do %>
           <div class="form-group">
             <%= label_tag :new_slug %>
-            <%= text_field_tag :new_slug, nil, value: @referential_slug, class: "form-control" %>
+            <%= text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control" %>
           </div>
 
           <div class="form-group">
             <%= label_tag :token %>
-            <%= text_field_tag :token, nil, value: @referential_token, class: "form-control" %>
+            <%= text_field_tag :token, nil, value: @referential.token, class: "form-control" %>
           </div>
           <div class="form-group">
             <button class="btn btn-primary" type="submit">Submit</button>
