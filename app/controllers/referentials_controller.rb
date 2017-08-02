@@ -31,7 +31,7 @@ class ReferentialsController < ApplicationController
         Slug: params[:new_slug],
         Tokens: [params[:token]]
       }
-    create_referentials = RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
   end
 
@@ -51,12 +51,12 @@ class ReferentialsController < ApplicationController
       NextReloadAt: params[:next_reload_at],
       Tokens: [params[:token]]
     }
-    edit_referentials = RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
   end
 
   def destroy
-    destroy_referentials = RestClient.delete("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:slug]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    RestClient.delete("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:slug]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
   end
 end
