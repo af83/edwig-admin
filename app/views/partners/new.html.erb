@@ -1,32 +1,44 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <%= link_to referentials_path,
+                  class: 'btn btn-default back-button' do %>
+          <em class="fa fa-arrow-left"></em>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <h1 class="text-center">Créer un Partner</h1>
     <div class="col-md-12">
-      <form>
-        <div class="form-group">
-          <label class="control-label " for="slug">Slug</label>
-          <input class="form-control" id="slug" name="slug" type="text" value=""/>
-        </div>
+      <%= form_tag referential_partners_path, method: :post do %>
+          <div class="form-group">
+            <%= label_tag :partner_slug %>
+            <%= text_field_tag :partner_slug, nil, value: @partner_slug, class: "form-control" %>
 
-        <div class="form-group">
-          <label class="control-label requiredField" for="partnerstatus">PartnerStatus</label>
-          <input class="form-control" id="partnerstatus" name="partnerstatus" type="text"/>
-        </div>
+            <div class="form-group">
+              <%= label_tag :partner_status %>
+              <%= text_field_tag :partner_status, nil, value: @partner_partner_status, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <label class="control-label " for="connectortypes">ConnectorTypes</label>
-          <input class="form-control" id="connectortypes" name="connectortypes" type="text"/>
-        </div>
+            <div class="form-group">
+              <%= label_tag :connector_types %>
+              <%= text_field_tag :connector_types, nil, value: @partner_connector_types, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <label class="control-label " for="settings">Settings</label>
-          <textarea class="form-control" cols="40" id="settings" name="settings" rows="10"></textarea>
-        </div>
+            <div class="form-group">
+              <%= label_tag :settings %>
+              <%= select_tag(:settings, options_for_select([['horrible'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings , class: "form-control")%>
 
-        <div class="form-group">
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
-      </form>
+            </div>
+
+            <%= hidden_field_tag :referential_slug, @referential_slug %>
+            <%= hidden_field_tag :token, params[:token] %>
+
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
