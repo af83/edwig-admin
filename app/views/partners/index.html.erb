@@ -8,13 +8,15 @@
 		</div>
 	</div>
   <div class="row">
-    <h1 class="text-center">Liste des Partners</h1>
+    <h1 class="text-center">Liste des Partners pour le Referential : <%= @referential_slug %></h1>
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-12">
-              <button type="button" class="btn btn-sm btn-primary btn-create newButton">Create New Referential</button>
+              <div class="col-md-12">
+                <%= link_to 'Create New Partner', new_referential_partner_path(token: @referential_token), class: 'btn btn-sm btn-primary btn-create pull-right' %>
+              </div>
             </div>
           </div>
         </div>
@@ -52,7 +54,10 @@
                   </td>
                   <td align="center">
                     <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                    <%= link_to (raw("<em class=\"fa fa-trash\"></em>")), referential_partner_path(id: i["Id"], slug: @referential_slug, token: @referential_token), :method=>'delete', :confirm=>'Are you sure you want to delete this referential_path ?', class: "btn btn-danger"%>
+                    <%= link_to referential_partner_path(id: i["Id"], slug: @referential_slug, token: @referential_token), method: :delete, data: {confirm: "Are you sure you want to delete this partner ?"},
+                                class: 'btn btn-danger' do %>
+                        <em class="fa fa fa-trash"></em>
+                    <% end %>
                   </td>
                 </tr>
             <% end %>

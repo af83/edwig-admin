@@ -1,16 +1,29 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <%= link_to referentials_path,
+                  class: 'btn btn-default back-button' do %>
+          <em class="fa fa-arrow-left"></em>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <h1 class="text-center">Créer un Referential</h1>
     <div class="col-md-12">
-      <form>
-        <div class="form-group">
-          <label class="control-label " for="slug">Slug</label>
-          <input class="form-control" id="slug" name="slug" type="text" value=""/>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
-      </form>
+      <%= form_tag referentials_path, method: :post do %>
+          <div class="form-group">
+            <%= label_tag :new_slug %>
+            <%= text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :token %>
+            <%= text_field_tag :token, nil, value: @referential.token, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

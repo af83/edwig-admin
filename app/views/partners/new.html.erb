@@ -1,32 +1,53 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <%= link_to referential_partners_path(token: params[:token]),
+                  class: 'btn btn-default back-button' do %>
+          <em class="fa fa-arrow-left"></em>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <h1 class="text-center">Créer un Partner</h1>
     <div class="col-md-12">
-      <form>
-        <div class="form-group">
-          <label class="control-label " for="slug">Slug</label>
-          <input class="form-control" id="slug" name="slug" type="text" value=""/>
-        </div>
+      <%= form_tag referential_partners_path, method: :post do %>
+          <div class="form-group">
+            <%= label_tag :partner_slug %>
+            <%= text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control" %>
 
-        <div class="form-group">
-          <label class="control-label requiredField" for="partnerstatus">PartnerStatus</label>
-          <input class="form-control" id="partnerstatus" name="partnerstatus" type="text"/>
-        </div>
+            <div class="form-group">
+              <%= label_tag :connector_types %>
+              <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <label class="control-label " for="connectortypes">ConnectorTypes</label>
-          <input class="form-control" id="connectortypes" name="connectortypes" type="text"/>
-        </div>
+            <div class="form-group">
+              <%= label_tag :settings_remote_url %>
+              <%= text_field_tag :settings_remote_url, nil, value: @partner.settings_remote_url, class: "form-control" %>
+            </div>
 
-        <div class="form-group">
-          <label class="control-label " for="settings">Settings</label>
-          <textarea class="form-control" cols="40" id="settings" name="settings" rows="10"></textarea>
-        </div>
+            <div class="form-group">
+              <%= label_tag :settings_remote_credential %>
+              <%= select_tag(:settings_remote_credential, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credential , class: "form-control")%>
+            </div>
 
-        <div class="form-group">
-          <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
-      </form>
+            <div class="form-group">
+              <%= label_tag :settings_local_credential %>
+              <%= select_tag(:settings_local_credential, options_for_select([['SQYBUS'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_local_credential , class: "form-control")%>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag :settings_remote_objectid_kind %>
+              <%= select_tag(:settings_remote_objectid_kind, options_for_select([['hastus'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_objectid_kind , class: "form-control")%>
+            </div>
+
+            <%= hidden_field_tag :referential_slug, @referential_slug %>
+            <%= hidden_field_tag :token, params[:token] %>
+
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>

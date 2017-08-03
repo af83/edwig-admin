@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "colors";
 
 /*Application*/
 
@@ -14,7 +15,11 @@ nav{
   width: 100%;
   top: 0px; 
   z-index: 3;
-  background-color: #4d9933;
+  background-color: $kermit-green;
+}
+
+.btn-primary:visited {
+  color: $white;
 }
 
 .li .navButton{
@@ -47,7 +52,7 @@ nav{
 
 .navbar-brand{
   font-size: 50px;
-  color: white; 
+  color: $white;
   font-family: times;
 }
 
@@ -56,25 +61,25 @@ nav{
 }
 
 #title:active {
-  color: white;
+  color: $white;
   background-color: transparent;
   text-decoration: none;
 }
 
 #title:hover {
-  color: white;
+  color: $white;
   background-color: transparent;
   text-decoration: none;
 }
 
 #title:link {
-  color: white;
+  color: $white;
   background-color: transparent;
   text-decoration: none;
 }
 
 #title:visited {
-  color: white;
+  color: $white;
   background-color: transparent;
   text-decoration: none;
 }
