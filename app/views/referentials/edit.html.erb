@@ -26,6 +26,8 @@
         <%= text_field_tag :token, nil, value: @referential.token, class: "form-control"%>
       </div>
 
+      <%= hidden_field_tag :id, @referential.id %>
+
       <div class="form-group">
         <button class="btn btn-primary btn-xs" type="submit">Edit</button>
       </div>
