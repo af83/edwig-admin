@@ -23,7 +23,7 @@
                               class: 'btn btn-primary navbar-btn' do %>
                       <em class="fa fa-envelope">&nbsp;Invite</em>
                   <% end %>
-                  <%= link_to destroy_user_session_path,
+                  <%= link_to destroy_user_session_path, method: :delete,
                               class: 'btn btn-danger navbar-btn' do %>
                       <em class="fa fa-sign-out">&nbsp;Logout</em>
                   <% end %>
