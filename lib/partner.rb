@@ -1,12 +1,11 @@
 class Partner
-  attr_reader :id, :slug, :token, :partner_status, :connector_types, :settings_remote_credentials
+  attr_reader :id, :slug, :token, :partner_status, :connector_types
 
-  def initialize(id: nil, slug:, token: nil, partner_status: nil, connector_types:, settings_remote_credentials:)
+  def initialize(id: nil, slug:, token: nil, partner_status: nil, connector_types:)
     @id = id
     @slug = slug
     @token = token
     @partner_status = partner_status
-    @settings_remote_credentials = settings_remote_credentials
     @connector_types = connector_types
   end
 end
