@@ -17,7 +17,7 @@ class PartnersController < ApplicationController
   def new
     @partner = Partner.new(
       slug: params[:partner_slug],
-      connectorTypes: params[:connector_types]
+      connector_types: params[:connector_types]
     )
   end
 
@@ -25,7 +25,7 @@ class PartnersController < ApplicationController
     attributes =
       {
         slug: params[:partner_slug],
-        connector_types: [params[:connector_types]],
+        connectorTypes: [params[:connector_types]],
         settings: {"remote_url" => params[:settings_remote_url], "remote_credential" => params[:settings_remote_credential], "local_credential" => params[:settings_local_credential], "remote_objectid_kind" => params[:settings_remote_objectid_kind]}
       }
     RestClient.post("#{Rails.configuration.edwig_api_host}/#{params[:referential_slug]}/partners", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{params[:token]}"})
