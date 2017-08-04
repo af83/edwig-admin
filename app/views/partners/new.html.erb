@@ -21,11 +21,6 @@
             </div>
 
             <div class="form-group">
-              <%= label_tag :settings_remote_url %>
-              <%= text_field_tag :settings_remote_url, nil, value: @partner.settings_remote_url, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
               <%= label_tag :settings_remote_credential %>
               <%= select_tag(:settings_remote_credential, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credential , class: "form-control")%>
             </div>
