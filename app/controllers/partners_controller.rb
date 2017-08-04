@@ -39,7 +39,7 @@ class PartnersController < ApplicationController
       partner_status: {"OperationnalStatus" => params[:partner_status_operationnal_statusl], "ServiceStartedAt" => params[:partner_status_service_started_at]},
       connector_types: [params[:connector_types]],
       token: params[:token],
-      settings_remote_credentials: params[:settings_remote_credentials],
+    #settings_remote_credentials: params[:settings_remote_credentials],
     # settings_local_credential: params[:settings_local_credential],
     # settings_remote_objectid_kind: params[:settings_remote_objectid_kind]
     )
