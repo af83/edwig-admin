@@ -54,7 +54,7 @@
                   </td>
                   <td align="center">
                     <%= link_to edit_referential_partner_path({partner_slug: i["Slug"], token: @referential_token, id: i["Id"], connector_types: i["ConnectorTypes"],
-                                                               partner_status: {partner_status_operationnal_statusl: i["OperationnalStatus"], partner_status_service_started_at: i["ServiceStartedAt"]}}),
+                                                               status: i["PartnerStatus"]}),
                                 class: 'btn btn-default' do %>
                         <em class="fa fa fa-pencil"></em>
                     <% end %>
