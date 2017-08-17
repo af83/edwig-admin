@@ -1,3 +1,12 @@
+<head>
+  <script>
+      $(document).ready(function () {
+          $("#e1").select2();
+      });
+  </script>
+</head>
+
+<body>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -14,35 +23,25 @@
           <div class="form-group">
             <%= label_tag :partner_slug %>
             <%= text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :connector_types %>
+            <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
+          </div>
 
-            <div class="form-group">
-              <%= label_tag :connector_types %>
-              <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= label_tag :connectors %>
+            <%= select_tag(:connectors, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), id: "e1", selected: :connectors, class: "form-control") %>
+          </div>
 
-            <div class="form-group">
-              <%= label_tag :settings_remote_credential %>
-              <%= select_tag(:settings_remote_credential, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credential , class: "form-control")%>
-            </div>
+          <%= hidden_field_tag :referential_slug, @referential_slug %>
+          <%= hidden_field_tag :token, params[:token] %>
 
-            <div class="form-group">
-              <%= label_tag :settings_local_credential %>
-              <%= select_tag(:settings_local_credential, options_for_select([['SQYBUS'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_local_credential , class: "form-control")%>
-            </div>
-
-            <div class="form-group">
-              <%= label_tag :settings_remote_objectid_kind %>
-              <%= select_tag(:settings_remote_objectid_kind, options_for_select([['hastus'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_objectid_kind , class: "form-control")%>
-            </div>
-
-            <%= hidden_field_tag :referential_slug, @referential_slug %>
-            <%= hidden_field_tag :token, params[:token] %>
-
-            <div class="form-group">
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
       <% end %>
-      </div>
     </div>
   </div>
 </div>
+</body>

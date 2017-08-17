@@ -1,3 +1,6 @@
+/*
+*= require select2
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
@@ -5,15 +8,15 @@
 
 /*Application*/
 
-body{
+body {
   background-color: white;
   font-family: times;
 }
 
-nav{
+nav {
   border-radius: 0;
   width: 100%;
-  top: 0px; 
+  top: 0px;
   z-index: 3;
   background-color: $kermit-green;
 }
@@ -22,41 +25,41 @@ nav{
   color: $white;
 }
 
-.li .navButton{
+.li .navButton {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.li .navButton:after{
+.li .navButton:after {
   position: absolute;
   opacity: 0;
   top: 0;
   transition: 0.5s;
 }
 
-.li:hover .navButton{
+.li:hover .navButton {
   padding: 25px;
   display: inline-block;
 }
 
-.li:hover .navButton:after{
+.li:hover .navButton:after {
   opacity: 1;
   right: 0;
 }
 
-.nav-wrapper{
+.nav-wrapper {
   min-height: 70px;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 50px;
   color: $white;
   font-family: times;
 }
 
-#spySetUp{
+#spySetUp {
   position: relative;
 }
 
@@ -86,11 +89,11 @@ nav{
 
 /*index*/
 
-#header{
+#header {
   text-align: center;
   font-size: 60px;
 }
 
-.back-button{
+.back-button {
   border-radius: 100%
 }
