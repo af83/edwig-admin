@@ -14,39 +14,24 @@
           <div class="form-group">
             <%= label_tag :partner_slug %>
             <%= text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control" %>
+          </div>
 
-            <div class="form-group">
-              <%= label_tag :connector_types %>
-              <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= label_tag :connector_types %>
+            <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
+          </div>
 
-            <div class="form-group">
-              <%= label_tag :status %>
-              <%= text_field_tag :status, nil, value: @partner.status, class: "form-control" %>
-            </div>
+          <div class="form-group">
+            <%= label_tag :settings %>
+            <%= select_tag(:settings, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), class: "form-control") %>
+          </div>
 
-            <div class="form-group">
-              <%= label_tag :settings_remote_credentials %>
-              <%= select_tag(:settings_remote_credentials, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credentials, class: "form-control") %>
-            </div>
+          <%= hidden_field_tag :id, @partner.id %>
 
-            <div class="form-group">
-              <%= label_tag :settings_local_credential %>
-              <%= select_tag(:settings_local_credential, options_for_select([['SQYBUS'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_local_credential, class: "form-control") %>
-            </div>
-
-            <div class="form-group">
-              <%= label_tag :settings_remote_objectid_kind %>
-              <%= select_tag(:settings_remote_objectid_kind, options_for_select([['hastus'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_objectid_kind, class: "form-control") %>
-            </div>
-
-            <%= hidden_field_tag :id, @partner.id %>
-
-            <div class="form-group">
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
       <% end %>
-      </div>
     </div>
   </div>
 </div>

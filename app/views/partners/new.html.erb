@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <h1 class="text-center">Créer un Partner</h1>
-    <div class="col-md-12">
+    <div class="col-md-3 col-xs-6">
       <%= form_tag referential_partners_path, method: :post do %>
           <div class="form-group">
             <%= label_tag :partner_slug %>
@@ -18,21 +18,6 @@
             <div class="form-group">
               <%= label_tag :connector_types %>
               <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= label_tag :settings_remote_credential %>
-              <%= select_tag(:settings_remote_credential, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_credential , class: "form-control")%>
-            </div>
-
-            <div class="form-group">
-              <%= label_tag :settings_local_credential %>
-              <%= select_tag(:settings_local_credential, options_for_select([['SQYBUS'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_local_credential , class: "form-control")%>
-            </div>
-
-            <div class="form-group">
-              <%= label_tag :settings_remote_objectid_kind %>
-              <%= select_tag(:settings_remote_objectid_kind, options_for_select([['hastus'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :settings_remote_objectid_kind , class: "form-control")%>
             </div>
 
             <%= hidden_field_tag :referential_slug, @referential_slug %>
