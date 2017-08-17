@@ -1,12 +1,3 @@
-<head>
-  <script>
-      $(document).ready(function () {
-          $("#e1").select2();
-      });
-  </script>
-</head>
-
-<body>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -31,7 +22,7 @@
 
           <div class="form-group">
             <%= label_tag :connectors %>
-            <%= select_tag(:connectors, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), id: "e1", selected: :connectors, class: "form-control") %>
+            <%= select_tag(:connector_types, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :connectors, class: "connectorSelect form-control") %>
           </div>
 
           <%= hidden_field_tag :referential_slug, @referential_slug %>
@@ -44,4 +35,3 @@
     </div>
   </div>
 </div>
-</body>
