@@ -8,14 +8,14 @@
     </div>
   </div>
   <div class="row">
-    <h1 class="text-center">Liste des Partners pour le Referential : <%= @referential_slug %></h1>
+    <h1 class="text-center"><%= t('partners.title')%> <%= @referential_slug %></h1>
     <div class="col-md-12">
       <div class="panel panel-default panel-table">
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-12">
               <div class="col-md-12">
-                <%= link_to 'Create New Partner', new_referential_partner_path(token: @referential_token), class: 'btn btn-sm btn-primary btn-create pull-right' %>
+                <%= link_to t('partners.create.title'), new_referential_partner_path(token: @referential_token), class: 'btn btn-sm btn-primary btn-create pull-right' %>
               </div>
             </div>
           </div>
