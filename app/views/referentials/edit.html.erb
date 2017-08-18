@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="row">
-    <h1 class="text-center">Editez un Referential</h1>
+    <h1 class="text-center"><%= t('referentials.edit.title')%></h1>
     <div class="col-md-3 col-xs-6">
       <%= form_tag referential_path(slug: @referential.slug), method: :put do %>
       <div class="form-group">
