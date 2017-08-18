@@ -14,8 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require select2
+//= require partners
 //= require_tree .
-
-$(function () {
-    $(".connectorSelect").select2();
-});

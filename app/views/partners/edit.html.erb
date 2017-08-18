@@ -17,13 +17,8 @@
           </div>
 
           <div class="form-group">
-            <%= label_tag :status %>
-            <%= text_field_tag :status, nil, value: @partner.status, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
             <%= label_tag :connectors %>
-            <%= select_tag(:connector_types, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :operators, class: "connectorSelect form-control") %>
+            <%= select_tag(:connectors, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control") %>
           </div>
 
           <%= hidden_field_tag :id, @partner.id %>

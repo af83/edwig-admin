@@ -15,14 +15,10 @@
             <%= label_tag :partner_slug %>
             <%= text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control" %>
           </div>
-          <div class="form-group">
-            <%= label_tag :connector_types %>
-            <%= text_field_tag :connector_types, nil, value: @partner.connector_types, class: "form-control" %>
-          </div>
 
           <div class="form-group">
             <%= label_tag :connectors %>
-            <%= select_tag(:connector_types, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :connectors, class: "connectorSelect form-control") %>
+            <%= select_tag(:connector, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :connectors, class: "js-connector-select form-control") %>
           </div>
 
           <%= hidden_field_tag :referential_slug, @referential_slug %>
