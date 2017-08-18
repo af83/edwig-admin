@@ -1,0 +1,12 @@
+fr:
+  referentials:
+    create:
+      title: "Créer un Referential"
+    edit:
+      title: "Editer un Referential"
+  partners:
+    title: "Liste des Partners pour le Referential :"
+    create:
+      title: "Créer un Partner"
+    edit:
+      title: "Editer un Partner"
