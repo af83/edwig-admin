@@ -61,6 +61,8 @@ gem 'jbuilder', '~> 2.5'
 
    # Use Capistrano for deployment
    gem 'capistrano-af83', af83: 'capistrano-af83'
+
+   gem 'bundler-audit'
  end
 
  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgis
+  encoding: unicode
+  schema_search_path: public
+  username: <%= ENV['POSTGRESQL_ENV_POSTGRES_USER'] || 'jenkins' %>
+  password: <%= ENV['POSTGRESQL_ENV_POSTGRES_PASSWORD'] || 'jenkins' %>
+
+development:
+  <<: *default
+  database: edwig_dev
+
+test:
+  <<: *default
+  database: edwig_test
