@@ -21,11 +21,11 @@
                 <div class="nav navbar-nav pull-right">
                   <%= link_to new_user_invitation_path,
                               class: 'btn btn-primary navbar-btn' do %>
-                      <em class="fa fa-envelope">&nbsp;<%= t('application.inviteButton')%></em>
+                      <em class="fa fa-envelope">&nbsp;<%= t('application.invite_button')%></em>
                   <% end %>
                   <%= link_to destroy_user_session_path, method: :delete,
                               class: 'btn btn-danger navbar-btn' do %>
-                      <em class="fa fa-sign-out">&nbsp;<%= t('application.logoutButton')%></em>
+                      <em class="fa fa-sign-out">&nbsp;<%= t('application.logout_button')%></em>
                   <% end %>
                 </div>
               <% end %>

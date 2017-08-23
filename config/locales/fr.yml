@@ -1,32 +1,29 @@
 fr:
   application:
     title: "Edwig-admin"
-    inviteButton: "Inviter"
-    logoutButton: "déconnexion"
+    invite_button: "Inviter"
+    logout_button: "déconnexion"
   referentials:
     title: "Referential"
-    tabTh:
-      id: "ID"
-      slug: "Slug"
-      nextReloadAt: "NextReloadAt"
-      token: "Token"
     create:
       title: "Créer un Referential"
-      submitCreate: "Créer"
+      submit: "Créer"
     edit:
       title: "Editer un Referential"
-      submitEdit: "Editer"
+      submit: "Editer"
   partners:
     title: "Liste des Partners pour le Referential :"
-    tabTh:
-      id: "ID"
-      slug: "Slug"
-      partnerStatus: "PartnerStatus"
-      connectorTypes: "ConnectorTypes"
-      settings: "Settings"
     create:
       title: "Créer un Partner"
-      submitCreate: "Créer"
+      submit: "Créer"
     edit:
       title: "Editer un Partner"
-      submitEdit: "Editer"
+      submit: "Editer"
+  attributes:
+    id: "ID"
+    slug: "Slug"
+    partner_status: "PartnerStatus"
+    connector_types: "ConnectorTypes"
+    settings: "Settings"
+    next_reloadAt: "NextReloadAt"
+    token: "Token"
