@@ -12,7 +12,7 @@ fr:
       title: "Editer un Referential"
       submit: "Editer"
     attributes:
-      next_reload_At: "NextReloadAt"
+      next_reload_at: "NextReloadAt"
       token: "Token"
   partners:
     title: "Liste des Partners pour le Referential :"
