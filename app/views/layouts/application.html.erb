@@ -16,16 +16,16 @@
           <div class="nav-wrapper">
             <nav class="navbar nav-wrapper container-fluid" role="navigation" data-spy="affix" data-offset-top="700">
               <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target=".navbar-collapse"></button>
-              <div class="navbar navbar-brand">Edwig-Admin</div>
+              <div class="navbar navbar-brand"><%= t('application.title')%></div>
               <% if user_signed_in? %>
                 <div class="nav navbar-nav pull-right">
                   <%= link_to new_user_invitation_path,
                               class: 'btn btn-primary navbar-btn' do %>
-                      <em class="fa fa-envelope">&nbsp;Invite</em>
+                      <em class="fa fa-envelope">&nbsp;<%= t('application.invite_button')%></em>
                   <% end %>
                   <%= link_to destroy_user_session_path, method: :delete,
                               class: 'btn btn-danger navbar-btn' do %>
-                      <em class="fa fa-sign-out">&nbsp;Logout</em>
+                      <em class="fa fa-sign-out">&nbsp;<%= t('application.logout_button')%></em>
                   <% end %>
                 </div>
               <% end %>
