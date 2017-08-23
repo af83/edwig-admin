@@ -11,6 +11,9 @@ fr:
     edit:
       title: "Editer un Referential"
       submit: "Editer"
+    attributes:
+      next_reload_At: "NextReloadAt"
+      token: "Token"
   partners:
     title: "Liste des Partners pour le Referential :"
     create:
@@ -19,11 +22,10 @@ fr:
     edit:
       title: "Editer un Partner"
       submit: "Editer"
+    attributes:
+      partner_status: "PartnerStatus"
+      connector_types: "ConnectorTypes"
+      settings: "Settings"
   attributes:
     id: "ID"
     slug: "Slug"
-    partner_status: "PartnerStatus"
-    connector_types: "ConnectorTypes"
-    settings: "Settings"
-    next_reloadAt: "NextReloadAt"
-    token: "Token"
