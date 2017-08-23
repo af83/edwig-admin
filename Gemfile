@@ -29,6 +29,8 @@ gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
+gem 'slim', '~> 3.0', '>= 3.0.8'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

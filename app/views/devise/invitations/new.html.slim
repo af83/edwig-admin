@@ -1,0 +1,18 @@
+.row
+  .col-md-12
+    = link_to referentials_path,
+    -                 class: 'btn btn-default back-button' do
+    em.fa.fa-arrow-left
+.row
+  .col-md-3
+    h2
+      = t "devise.invitations.new.header"
+    = form_for resource, as: @resource_name, url: invitation_path(@resource_name), html: {method: :post} do |f|
+      = devise_error_messages!
+      - resource.class.invite_key_fields.each do |field|
+        p
+          = f.label field
+          br
+          = f.text_field field, class: "form-control"
+      p
+        = f.submit t("devise.invitations.new.submit_button"), class: "btn btn-default"

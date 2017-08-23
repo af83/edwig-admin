@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-md-12
+      = link_to referential_partners_path(token: params[:token]), class: 'btn btn-default back-button' do
+        em.fa.fa-arrow-left
+  .row
+    h1.text-center
+      = t('partners.edit.title')
+    .col-md-3.col-xs-6
+      = form_tag referential_partner_path(slug: @partner.slug, token: params[:token]), method: :put do
+        .form-group
+          = label_tag :partner_slug
+          = text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control"
+        .form-group
+          = label_tag :connectors
+          = select_tag(:connectors, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")
+        = hidden_field_tag :id, @partner.id
+        .form-group
+          button.btn.btn-primary[type="submit"]
+            | Submit
