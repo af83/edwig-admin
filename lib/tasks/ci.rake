@@ -28,7 +28,7 @@ namespace :ci do
 
   desc "Deploy after CI"
   task :deploy do
-    sh "cap #{deploy_env} deploy"
+    sh "cap #{deploy_env} deploy deploy:seed"
   end
 
   desc "Clean test files"
