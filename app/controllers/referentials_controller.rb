@@ -10,14 +10,6 @@ class ReferentialsController < ApplicationController
     @referentials_tab.sort_by! {|referential| referential["Slug"]}
   end
 
-  def show
-
-  end
-
-  def partners
-
-  end
-
   def new
     @referential = Referential.new(
       slug: params[:slug],
