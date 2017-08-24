@@ -1,8 +1,12 @@
+/ PageHeader
+- header_params = ['map-marker',
+        t('referentials.title'),
+        '']
+- header_params << link_to(t('referentials.create.title'), new_referential_path, class: 'btn btn-default')
+= pageheader(*header_params)
 .container
   .row
     .col-md-12
-      br
-      br
   .row
     h1.text-center
       = t('referentials.title')
