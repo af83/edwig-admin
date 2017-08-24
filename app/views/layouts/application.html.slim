@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | Edwig-Admin
+      = t('application.title')
     meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8"]
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false
@@ -15,15 +15,15 @@ html
             nav.navbar.nav-wrapper.container-fluid
               button.navbar-toggle.glyphicon.glyphicon-menu-hamburger type="button"
               .navbar.navbar-brand
-                | Edwig-Admin
+                = t('application.title')
               - if user_signed_in?
                 .nav.navbar-nav.pull-right
                   = link_to new_user_invitation_path, class: 'btn btn-primary navbar-btn' do
                     em.fa.fa-envelope
-                    |  Invite
+                    = t('application.invite_button')
                   = link_to destroy_user_session_path, method: :delete, class: 'btn btn-danger navbar-btn' do
                     em.fa.fa-sign-out
-                    |  Logout
+                    = t('application.logout_button')
 
     div
       = yield

@@ -5,7 +5,7 @@
       br
   .row
     h1.text-center
-      | Referentials
+      = t('referentials.title')
     .col-md-12
       .panel.panel-default.panel-table
         .panel-heading
@@ -18,13 +18,13 @@
             thead
               tr
                 th.hidden-xs
-                  | ID
+                  = t('attributes.id')
                 th
-                  | Slug
+                  = t('attributes.slug')
                 th
-                  | NextReloadAt
+                  = t('attributes.attributes.next_reload_at')
                 th
-                  | Token
+                  = t('attributes.attributes.token')
                 th
                   em.fa.fa-cog
             tbody
