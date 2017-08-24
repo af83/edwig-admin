@@ -1,0 +1,70 @@
+.page_header
+  background-color: $blue
+  color: #fff
+
+  .container-fluid > .row:first-child
+    &:last-child
+      margin-bottom: 15px
+
+  .page-icon
+    display: inline-block
+    vertical-align: middle
+    width: 45px
+    height: 45px
+    background-color: rgba(#fff, 0.2)
+    line-height: 45px
+    text-align: center
+
+    margin-right: 20px
+
+  .page-title
+    display: inline-block
+    vertical-align: middle
+    width: calc(100% - 65px)
+
+    &:first-child
+      width: 100%
+
+    h1
+      position: relative
+      line-height: 1.1
+      max-height: 2.2em
+      margin: 0 -1.4em 0 0
+      padding: 0 1.4em 0 0
+      overflow: hidden
+
+      &:before
+        content: '[...]'
+        font-size: 0.65em
+        position: absolute
+        z-index: 5
+        right: 0
+        bottom: 4px
+
+      &:after
+        content: ''
+        position: absolute
+        z-index: 5
+        right: 0
+        width: 1.4em
+        height: 1em
+        margin-top: 0.2em
+        background-color: $blue
+
+      .small.fa
+        color: #fff
+        margin-left: 0.5em
+
+  .page-action
+    line-height: 42px
+    height: 45px
+    margin-bottom: 10px
+    text-align: right
+
+    > *
+      display: inline-block
+      vertical-align: middle
+      line-height: $line-height
+
+      + .btn
+        margin-left: 15px

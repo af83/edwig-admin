@@ -15,7 +15,7 @@ fr:
       next_reload_at: "NextReloadAt"
       token: "Token"
   partners:
-    title: "Liste des Partners pour le Referential :"
+    title: "Liste des Partners pour le Referential : "
     create:
       title: "Créer un Partner"
       submit: "Créer"

@@ -1,0 +1,26 @@
+//-------------//
+//  Dropdowns  //
+//-------------//
+
+.dropdown-menu
+  z-index: 2001
+
+  > li > button
+    display: block
+    width: 100%
+    text-align: left
+    border: none
+    background-color: transparent
+    color: #333
+
+    &:hover, &:focus
+      color: #262626
+      background-color: whitesmoke
+      outline: none
+
+  > .disabled > a, > .disabled > button
+    cursor: not-allowed
+    &, &:hover, &:focus
+      color: rgba($darkgrey, 0.5)
+      background-color: transparent
+      outline: none
