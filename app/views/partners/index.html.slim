@@ -1,3 +1,37 @@
+/ PageHeader
+- header_params = ['map-marker',
+        t('partners.title') + @referential_slug,
+        '']
+- header_params << link_to(t('partners.create.title'), new_referential_partner_path(token: @referential_token), class: 'btn btn-default')
+= pageheader(*header_params)
+
+
+
+
+/ PageContent
+.page_content
+  .container-fluid
+      .row
+        .col-lg-12
+          = tavb ble_builder_2 @calendars,
+                  [\
+              TableBuilderHelper::Column.new(\
+                key: :name, \
+                attribute: 'name' \
+              ), \
+              TableBuilderHelper::Column.new(\
+                key: :short_name, \
+                attribute: 'short_name' \
+              ), \
+              TableBuilderHelper::Column.new(\
+                key: :shared, \
+                attribute: Proc.new {|c| t("#{c.try(:shared)}")} \
+              ) \
+            ],
+                  links: [:show, :edit],
+                  cls: 'table has-filter'
+
+
 .container
   .row
     .col-md-12
