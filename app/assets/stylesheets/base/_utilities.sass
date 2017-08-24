@@ -1,0 +1,72 @@
+//-------------//
+//  Utilities  //
+//-------------//
+
+.mt-xs
+  margin-top: 10px
+.mt-sm
+  margin-top: 15px
+.mt-md
+  margin-top: 20px
+.mt-lg
+  margin-top: 40px
+
+.mb-xs
+  margin-bottom: 10px
+.mb-sm
+  margin-bottom: 15px
+.mb-md
+  margin-bottom: 20px
+.mb-lg
+  margin-bottom: 40px
+
+.ml-xs
+  margin-left: 10px
+.ml-sm
+  margin-left: 15px
+.ml-md
+  margin-left: 20px
+.ml-lg
+  margin-left: 40px
+
+.mr-xs
+  margin-right: 10px
+.mr-sm
+  margin-right: 15px
+.mr-md
+  margin-right: 20px
+.mr-lg
+  margin-right: 40px
+
+@for $i from 5 through 100
+  .w#{$i}
+    width: $i * 1%
+
+// Empty zones
+=emptyzone($col1, $col2)
+  background-image: linear-gradient(-45deg, $col1 25%, $col2 25%, $col2 50%, $col1 50%, $col1 75%, $col2 75%, transparent)
+  background-size: 40px 40px
+
+.cellwrap
+  display: block
+  // To avoid white spaces between childrend inline-block
+  letter-spacing: -0.31em
+  text-rendering: optimizespeed
+  font-weight: 400
+
+  > div
+    display: inline-block
+    // To avoid white spaces between children inline-block
+    letter-spacing: normal
+    word-spacing: normal
+    text-rendering: auto
+    overflow: hidden
+    vertical-align: middle
+    min-width: 20px
+
+    + div
+      margin-left: 5px
+
+    &.hidden:first-child
+      &, & + div
+        margin-left: 0
