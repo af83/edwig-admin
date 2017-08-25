@@ -30,15 +30,15 @@
             <% @referentials_tab.each do |i| %>
                 <tr>
                   <td class="hidden-xs"><%= i["Id"] %></td>
-                  <td><%= i["Slug"] %></td>
+                  <td class="slug"><%= i["Slug"] %></td>
                   <td><%= i["NextReloadAt"] %></td>
-                  <td><%= i["Tokens"][0] %></td>
+                  <td class="tokens"><%= i["Tokens"].join(',') if i["Tokens"] %></td>
                   <td align="center">
-                    <%= link_to referential_partners_path(i["Slug"], token: i["Tokens"][0]),
+                    <%= link_to referential_partners_path(i["Slug"], token: i["Tokens"].try(:first)),
                                 class: 'btn btn-default' do %>
                         <em class="fa fa fa-eye"></em>
                     <% end %>
-                    <%= link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"], next_reload_at: i["NextReloadAt"]}),
+                    <%= link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"]}),
                                 class: 'btn btn-default' do %>
                         <em class="fa fa fa-pencil"></em>
                     <% end %>
