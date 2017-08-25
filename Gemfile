@@ -51,6 +51,7 @@ gem 'jbuilder', '~> 2.5'
    gem 'rspec-rails', '~> 3.5'
    gem 'factory_girl', '~> 4.7'
    gem 'faker', '~> 1.6', '>= 1.6.6'
+   gem 'capybara'
  end
 
  group :development do
