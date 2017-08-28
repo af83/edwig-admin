@@ -1,0 +1,56 @@
+.container
+  .row
+    .col-md-12
+      = link_to referentials_path, class: 'btn btn-default back-button' do
+        em.fa.fa-arrow-left
+  .row
+    h1.text-center
+      = t('partners.title')
+      = @referential_slug
+    .col-md-12
+      .panel.panel-default.panel-table
+        .panel-heading
+          .row
+            .col-md-12
+              .col-md-12
+                = link_to t('partners.create.title'), new_referential_partner_path(token: @referential_token), class: 'btn btn-sm btn-primary btn-create pull-right'
+        .panel-body
+          table.table.table-striped.table-bordered.table-list
+            thead
+              tr
+                th.hidden-xs
+                  = t('attributes.id')
+                th
+                  = t('attributes.slug')
+                th
+                  = t('partners.attributes.partner_status')
+                th
+                  = t('partners.attributes.connector_types')
+                th
+                  = t('partners.attributes.settings')
+                th
+                  em.fa.fa-cog
+            tbody
+              - @partners_tab.each do |i|
+                tr
+                  td.hidden-xs
+                    = i["Id"]
+                  td
+                    = i["Slug"]
+                  td
+                    - i["PartnerStatus"].each do |key, value|
+                      = ">#{key}: #{value}"
+                      br
+                  td
+                    - i["ConnectorTypes"].each do |connector|
+                      = ">#{connector}"
+                      br
+                  td
+                    - i["Settings"].each do |key, value|
+                      = ">#{key}: #{value}"
+                      br
+                  td[align="center"]
+                    = link_to edit_referential_partner_path({partner_slug: i["Slug"], token: @referential_token, id: i["Id"], connector_types: i["ConnectorTypes"], status: i["PartnerStatus"]}), class: 'btn btn-default' do
+                      em.fa.fa.fa-pencil
+                    = link_to referential_partner_path(id: i["Id"], slug: @referential_slug, token: @referential_token), method: :delete, data: {confirm: "Are you sure you want to delete this partner ?"}, class: 'btn btn-danger' do
+                      em.fa.fa.fa-trash

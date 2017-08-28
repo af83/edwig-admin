@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-12
+      = link_to referentials_path, class: 'btn btn-default back-button' do
+        em.fa.fa-arrow-left
+  .row
+    h1.text-center
+      = t('referentials.create.title')
+    .col-md-3.col-xs-6
+      = form_tag referentials_path, method: :post do
+        .form-group
+          = label_tag :new_slug
+          = text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control"
+        .form-group
+          = label_tag :token
+          = text_field_tag :token, nil, value: @referential.token, class: "form-control"
+        .form-group
+          button.btn.btn-primary[type="submit"]
+            = t('referentials.create.submit')
