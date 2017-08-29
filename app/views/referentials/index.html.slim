@@ -43,7 +43,8 @@
           - @referentials_tab.each do |i|
             tr
               td title="Voir"
-                a href="/calendars/1"  = i["Id"]
+                = link_to referential_partners_path(i["Slug"], token: i["Tokens"][0]) do
+                  = i["Id"]
               td = i["Slug"]
               td = i["NextReloadAt"]
               td = i["Tokens"][0]
