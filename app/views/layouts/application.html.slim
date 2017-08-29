@@ -15,11 +15,11 @@ html lang=I18n.locale
 
 
   body
-    = render 'layouts/navigation/main_nav'
-    
-    = render 'layouts/flash_messages', flash: flash
-    
-    = yield
+    - if user_signed_in?
+      = render 'layouts/navigation/main_nav'
+      = render 'layouts/flash_messages', flash: flash
 
-    #sidebar
-      = yield :sidebar
+    = yield
+    - if user_signed_in?
+      #sidebar
+        = yield :sidebar

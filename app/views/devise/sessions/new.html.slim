@@ -1,27 +1,26 @@
-.row
-  .col-md-3
-    h2
-      | Log in
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      div[style="color: red"]
-        - if flash[:notice]
-          p.alert
-            = flash[:notice]
-        - if flash[:alert]
-          p.alert
-            = flash[:alert]
-      .field
-        = f.label :email
-        br
-        = f.email_field :email, autofocus: true, class: "form-control"
-      .field
-        = f.label :password
-        br
-        = f.password_field :password, autocomplete: "off", class: "form-control"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit "Log in", class: "btn btn-default"
-= render "devise/shared/links"
+.container
+  .row
+    .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1 role="main"
+      = render 'layouts/flash_messages'
+      .panel.panel-default.panel-form
+        h1.text-center = t('application.title')
+        .hr
+        .panel-body
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .row
+              .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-8.col-xs-offset-2
+                .form-group
+                  .input-group
+                    = f.email_field :email, autofocus: true, class: 'form-control', placeholder: t('devise.login.label_username')
+                    span.input-group-addon
+                      span.fa.fa-user
+                .form-group
+                  .input-group
+                    = f.password_field :password, class: 'form-control', placeholder: t('devise.login.label_password')
+                    span.input-group-addon
+                      span.fa.fa-key
+
+            .row.actions
+              .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-8.col-xs-offset-2.text-center
+                button.btn.btn-primary[type="submit"]
+                  = t('devise.login.label_button')
