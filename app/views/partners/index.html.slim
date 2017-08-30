@@ -18,35 +18,15 @@
           thead
             tr
               th
-                a href="/calendars?direction=desc&amp;sort=name"
-                  = t('attributes.id')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.id')
               th
-                a href="/calendars?direction=desc&amp;sort=short_name"
-                  = t('partners.slug')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('partners.slug')
               th
-                a href="/calendars?direction=desc&amp;sort=shared"
-                  = t('attributes.attributes.partner_status')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.attributes.partner_status')
               th
-                a href="/calendars?direction=desc&amp;sort=shared"
-                  = t('partners.attributes.connector_types')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('partners.attributes.connector_types')
               th
-                a href="/calendars?direction=desc&amp;sort=shared"
-                  = t('partners.attributes.settings')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('partners.attributes.settings')
               th
           tbody
           - @partners_tab.each do |i|

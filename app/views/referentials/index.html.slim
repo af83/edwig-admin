@@ -15,39 +15,21 @@
           thead
             tr
               th
-                a href="/calendars?direction=desc&amp;sort=name"
-                  = t('attributes.id')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.slug')
               th
-                a href="/calendars?direction=desc&amp;sort=short_name"
-                  = t('attributes.slug')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.attributes.next_reload_at')
               th
-                a href="/calendars?direction=desc&amp;sort=shared"
-                  = t('attributes.attributes.next_reload_at')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.attributes.token')
               th
-                a href="/calendars?direction=desc&amp;sort=shared"
-                  = t('attributes.attributes.token')
-                  span.orderers
-                    span.fa.fa-sort-asc.active
-                    span.fa.fa-sort-desc
+                = t('attributes.partner')
               th
           tbody
           - @referentials_tab.each do |i|
             tr
-              td title="Voir"
-                = link_to referential_partners_path(i["Slug"], token: i["Tokens"][0]) do
-                  = i["Id"]
               td = i["Slug"]
               td = i["NextReloadAt"]
-              td = i["Tokens"][0]
+              td = i["Tokens"].count
+              td = i["Partners"].count
               td.actions
                 .btn-group
                   .btn.dropdown-toggle data-toggle="dropdown"
