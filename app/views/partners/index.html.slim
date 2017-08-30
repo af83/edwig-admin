@@ -28,11 +28,13 @@
               th
                 = t('partners.attributes.settings')
               th
+                = t('partners.attributes.operational_status')
+              th
           tbody
           - @partners_tab.each do |i|
             tr
               td title="Voir"
-                a href="/calendars/1"  = i["Id"]
+                a href="/calendars/1" = i["Id"]
               td = i["Slug"]
               td
                 - i["PartnerStatus"].each do |key, value|
@@ -43,6 +45,19 @@
               td
                 - i["Settings"].each do |key, value|
                   = ">#{key}: #{value}"
+
+              - if i["PartnerStatus"]["OperationnalStatus"] == "unknown"
+                td
+                  .btn-group
+                    .btn.btn-circle.btn-unknown
+              - elsif i["PartnerStatus"]["OperationnalStatus"] == "down"
+                td
+                  .btn-group
+                    .btn.btn-circle.btn-down
+              - elsif i["PartnerStatus"]["OperationnalStatus"] == "up"
+                td
+                  .btn-group
+                    .btn.btn-circle.btn-up
               td.actions
                 .btn-group
                   .btn.dropdown-toggle data-toggle="dropdown"
