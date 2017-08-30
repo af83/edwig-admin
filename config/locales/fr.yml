@@ -29,3 +29,4 @@ fr:
   attributes:
     id: "ID"
     slug: "Slug"
+    partner: "Partner"
