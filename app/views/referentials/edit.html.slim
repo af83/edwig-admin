@@ -7,14 +7,14 @@
     h1.text-center
       = t('referentials.edit.title')
     .col-md-3.col-xs-6
-      = form_tag referential_path(slug: @referential["Slug"]), method: :put do
+      = form_tag referential_path(slug: @referential.slug), method: :put do
         .form-group
           = label_tag :new_slug
-          = text_field_tag :new_slug, nil, value: @referential["Slug"], class: "form-control"
+          = text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control"
         .form-group
           = label_tag :token
-          = text_field_tag :token, nil, value: @referential["Tokens"], class: "form-control"
-        = hidden_field_tag :id, @referential["Id"]
+          = text_field_tag :token, nil, value: @referential.token, class: "form-control"
+        = hidden_field_tag :id, @referential.id
         .form-group
           button.btn.btn-primary.btn-xs[type="submit"]
             = t('referentials.edit.submit')

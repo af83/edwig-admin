@@ -29,9 +29,14 @@ class ReferentialsController < ApplicationController
 
   def edit
     referential = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
-    @referential = JSON.parse(referential)
+    parsed_referential = JSON.parse(referential)
 
-    puts @referential["Slug"]
+    @referential = Referential.new(
+        id: parsed_referential["Id"],
+        slug: parsed_referential["Slug"],
+        next_reload_at: parsed_referential["NextReloadAt"],
+        token: parsed_referential["Tokens"]
+    )
   end
 
   def update
