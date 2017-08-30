@@ -26,6 +26,7 @@ fr:
       partner_status: "PartnerStatus"
       connector_types: "ConnectorTypes"
       settings: "Settings"
+      operational_status: "OperationalStatus"
   attributes:
     id: "ID"
     slug: "Slug"
