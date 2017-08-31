@@ -37,4 +37,25 @@ module ApplicationHelper
       end
     end
   end
+
+  # Definition list
+  def definition_list title, test
+    return unless test.present?
+
+    head = content_tag(:div, title, class: 'dl-head')
+
+    body = content_tag :div, class: 'dl-body' do
+      cont = []
+      test.map do |k, v|
+        cont << content_tag(:div, k, class: 'dl-term')
+        cont << content_tag(:div, v, class: 'dl-def')
+      end
+      cont.join.html_safe
+    end
+
+    content_tag :div, '', class: 'definition-list' do
+      head + body
+    end
+  end
+
 end
