@@ -40,9 +40,9 @@
                     = i["Tokens"].join(',') if i["Tokens"]
                   td[align="center"]
                     - if (token = i["Tokens"].try(:first)).present?
-                      = link_to referential_partners_path(i["Slug"], token: token, class: 'btn btn-default show' do
+                      = link_to referential_partners_path(i["Slug"], token: token), class: 'btn btn-default show' do
                         em.fa.fa.fa-eye
                       = link_to edit_referential_path({slug: i["Slug"], token: token, id: i["Id"], next_reload_at: i["NextReloadAt"]}), class: 'btn btn-default edit' do
                         em.fa.fa.fa-pencil
                     = link_to referential_path(i["Id"]), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"}, class: 'btn btn-danger delete' do
-                        em.fa.fa.fa-trash
+                      em.fa.fa.fa-trash
