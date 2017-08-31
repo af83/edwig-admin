@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'json'
 require 'referential'
+
 class ReferentialsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -18,11 +19,11 @@ class ReferentialsController < ApplicationController
   end
 
   def create
-    attributes =
-      {
-        Slug: params[:new_slug],
-        Tokens: [params[:token]]
-      }
+    attributes ={
+      Slug: params[:new_slug],
+      Tokens: [params[:token]]
+    }
+
     RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
   end
@@ -32,20 +33,20 @@ class ReferentialsController < ApplicationController
     parsed_referential = JSON.parse(referential)
 
     @referential = Referential.new(
-        id: parsed_referential["Id"],
-        slug: parsed_referential["Slug"],
-        next_reload_at: parsed_referential["NextReloadAt"],
-        token: parsed_referential["Tokens"]
+      id: parsed_referential["Id"],
+      slug: parsed_referential["Slug"],
+      next_reload_at: parsed_referential["NextReloadAt"],
+      token: parsed_referential["Tokens"]
     )
   end
 
   def update
-    attributes =
-    {
+    attributes ={
       Slug: params[:new_slug],
       NextReloadAt: params[:next_reload_at],
       Tokens: [params[:token]]
     }
+
     RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
   end
