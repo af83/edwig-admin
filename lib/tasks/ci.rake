@@ -35,7 +35,7 @@ namespace :ci do
     if deploy_env
       sh "cap #{deploy_env} deploy deploy:seed"
     else
-      puts "No deploy for branch #{git-branch}"
+      puts "No deploy for branch #{git_branch}"
     end
   end
 
