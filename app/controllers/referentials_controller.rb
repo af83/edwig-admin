@@ -42,7 +42,8 @@ class ReferentialsController < ApplicationController
       id: params[:id],
       slug: params[:slug],
       next_reload_at: params[:next_reload_at],
-      token: params[:token]
+      token: params[:token],
+      partner: params[:partner]
     )
   end
 

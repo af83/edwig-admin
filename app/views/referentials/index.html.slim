@@ -42,7 +42,7 @@
                       = link_to referential_partners_path(i["Slug"], token: i["Tokens"][0]) do
                         | Consulter les partners
                     li
-                      = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"], next_reload_at: i["NextReloadAt"]}) do
+                      = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
                         | Editer
                     li.delete-action
                       = link_to referential_path(i["Id"]), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"} do
