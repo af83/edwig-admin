@@ -8,7 +8,17 @@ class ReferentialsController < ApplicationController
     referentials = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     @referentials_tab = JSON.parse(referentials)
     @referentials_tab.sort_by! {|referential| referential["Slug"]}
-end
+  end
+
+  def show
+    @referential = Referential.new(
+      id: params[:id],
+      slug: params[:slug],
+      next_reload_at: params[:next_reload_at],
+      token: params[:token],
+      partner: params[:partner]
+    )
+  end
 
   def new
     @referential = Referential.new(

@@ -36,8 +36,11 @@
                     span.fa.fa-cog
                   ul.dropdown-menu
                     li
+                      = link_to referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
+                        | Voir
+                    li
                       = link_to referential_partners_path(i["Slug"], token: i["Tokens"][0]) do
-                        | Consulter
+                        | Consulter les partners
                     li
                       = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"][0], id: i["Id"], next_reload_at: i["NextReloadAt"]}) do
                         | Editer
