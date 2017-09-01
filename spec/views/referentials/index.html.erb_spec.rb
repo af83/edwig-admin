@@ -33,7 +33,7 @@ RSpec.describe "referentials/index" do
     end
   end
 
-  context "when referential has no token", pending: "#4305" do
+  context "when referential has no token" do
     before { first_referential["Tokens"] = nil }
     it "should not include a link to show the referential" do
       render
@@ -42,10 +42,6 @@ RSpec.describe "referentials/index" do
     it "should not include a link to edit the referential" do
       render
       expect(rendered).to_not have_selector("a.edit")
-    end
-    it "should not include a link to delete the referential" do
-      render
-      expect(rendered).to_not have_selector("a.delete")
     end
   end
 
