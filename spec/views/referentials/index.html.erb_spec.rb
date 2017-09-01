@@ -11,25 +11,25 @@ RSpec.describe "referentials/index" do
     expect(rendered).to have_selector("td.slug", :text => "dummy")
   end
 
-  it "should display referential tokens" do
+  it "should display referential token count" do
     first_referential["Tokens"] = %w{token1 token2}
     render
-    expect(rendered).to have_selector("td.tokens", :text => "token1,token2")
+    expect(rendered).to have_selector("td.tokens", :text => 2)
   end
 
   context "when referential has token" do
     before { first_referential["Tokens"] = %w{dummy} }
     it "should include a link to show the referential" do
       render
-      expect(rendered).to have_selector("a.show")
+      expect(rendered).to have_selector("li.show-action")
     end
     it "should include a link to edit the referential" do
       render
-      expect(rendered).to have_selector("a.edit")
+      expect(rendered).to have_selector("li.edit-action")
     end
     it "should include a link to delete the referential" do
       render
-      expect(rendered).to have_selector("a.delete")
+      expect(rendered).to have_selector("li.delete-action")
     end
   end
 
@@ -37,11 +37,11 @@ RSpec.describe "referentials/index" do
     before { first_referential["Tokens"] = nil }
     it "should not include a link to show the referential" do
       render
-      expect(rendered).to_not have_selector("a.show")
+      expect(rendered).to_not have_selector("li.show-action")
     end
     it "should not include a link to edit the referential" do
       render
-      expect(rendered).to_not have_selector("a.edit")
+      expect(rendered).to_not have_selector("li.edit-action")
     end
   end
 

@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require select2
-//= require partners
+//= require cocoon
+//= require bootstrap-sass-official
+//= require select2-full
+//= require select2_locale_fr
+//= require footable
+//= require footable/footable.filter
+//= require footable/footable.paginate
+//= require footable/footable.sort
 //= require_tree .

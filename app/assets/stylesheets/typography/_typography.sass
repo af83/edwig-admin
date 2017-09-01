@@ -1,0 +1,39 @@
+h1
+  font-size: $h1-size
+  font-weight: 400
+
+h2
+  font-size: $h2-size
+  font-weight: 700
+
+h3
+  font-size: $h2-size
+  font-weight: 700
+
+p
+  &:last-child
+    margin-bottom: 0
+
+  a
+    color: inherit
+    border-bottom: 1px dashed rgba($blue, 0.5)
+    transition: 0.2s
+
+    &:hover, &:focus
+      text-decoration: none
+      color: $blue
+      border-color: $blue
+      transition: 0.2s
+
+strong, .strong
+  font-weight: 700
+
+// Text coloring
+.text-danger
+  color: $red
+.text-success
+  color: $green
+.text-info
+  color: $blue
+.text-warning
+  color: $orange

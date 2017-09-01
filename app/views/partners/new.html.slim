@@ -1,21 +1,28 @@
-.container
+/ PageHeader
+= pageheader 'map-marker',
+        t('partners.create.title'),
+        '',
+        ''
+/ PageContent
+.page_content
   .row
     .col-md-12
       = link_to referential_partners_path(token: params[:token]), class: 'btn btn-default back-button' do
         em.fa.fa-arrow-left
-  .row
-    h1.text-center
-      = t('partners.create.title')
-    .col-md-3.col-xs-6
-      = form_tag referential_partners_path, method: :post do
-        .form-group
-          = label_tag :partner_slug
-          = text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control"
-        .form-group
-          = label_tag :connectors
-          = select_tag(:connector, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :connectors, class: "js-connector-select form-control")
-        = hidden_field_tag :referential_slug, @referential_slug
-        = hidden_field_tag :token, params[:token]
-        .form-group
-          button.btn.btn-primary[type="submit"]
-            = t('partners.create.submit')
+  .container-fluid
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        = form_tag referential_partners_path, method: :post do
+          .row
+            .col-lg-12
+            .form-group
+              = label_tag :partner_slug
+              = text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control"
+            .form-group
+              = label_tag :connectors
+              = select_tag(:connector, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), selected: :connectors, class: "js-connector-select form-control")
+            = hidden_field_tag :referential_slug, @referential_slug
+            = hidden_field_tag :token, params[:token]
+            .form-group
+              button.btn.btn-primary[type="submit"]
+                = t('partners.create.submit')

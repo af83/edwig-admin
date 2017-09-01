@@ -1,0 +1,21 @@
+/ PageHeader
+- header_params = ['map-marker',
+        t('referentials.title') + @referential.slug,
+        '']
+= pageheader(*header_params)
+
+/ PageContent
+.page_content
+  .row
+    .col-md-12
+      = link_to referentials_path, class: 'btn btn-default back-button' do
+        em.fa.fa-arrow-left
+  .container-fluid
+    .row
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        = definition_list t('ezaeza'),
+                t('attributes.id') => @referential.id,
+                t('attributes.slug') => @referential.slug,
+                t('attributes.token') => @referential.token,
+                t('attributes.next_reload_at') => @referential.next_reload_at,
+                t('attributes.partner') => @referential.partner

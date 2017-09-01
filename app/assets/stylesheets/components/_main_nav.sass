@@ -1,0 +1,380 @@
+$menuH: 40px
+$menuW: 300px
+
+#main_nav
+  display: block
+  height: $menuH
+  transition: 0.1s
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1040
+
+  .brandname
+    font-size: $h2-size
+    font-weight: 700
+    line-height: $menuH
+    padding-left: 10px
+    opacity: 0.6
+
+  #menu_left
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+
+    .openMenu, .closeMenu
+      display: inline-block
+      width: $menuH
+      height: $menuH
+      line-height: $menuH
+      font: normal normal normal 14px/1 FontAwesome
+      text-rendering: auto
+      -webkit-font-smoothing: antialiased
+      font-size: 1.3333em
+      text-align: center
+      color: #fff
+      background-color: $darkblue
+      cursor: pointer
+      list-style: 0.75em
+      visibility: -15%
+
+      &:before
+        content: '\f0c9'
+        line-height: $menuH
+
+    .openMenu
+      transition: 0.1s
+
+    .closeMenu
+      &:before
+        content: '\f00d'
+
+      + .brandname
+        display: inline-block
+
+    .menu-content
+      display: block
+      background-color: $darkblue
+      color: #fff
+      width: $menuW
+      margin-left: -($menuW)
+      transition: 0.2s
+      position: fixed
+      top: 0
+      left: 0
+      bottom: 0
+      z-index: 1050
+
+    &.open .menu-content
+      margin-left: 0
+      transition: 0.2s
+
+    // Menu items
+    .menu-content
+      .panel-group
+        margin: 0
+        padding: 25px 0 0 0
+
+        .panel
+          border-radius: 0
+          border: none
+          box-shadow: none
+          background-color: transparent
+
+          + .panel
+            margin-top: 2px
+
+          .panel-heading
+            border-radius: 0
+            padding: 0
+            background-color: rgba(#fff, 0.2)
+
+            > .panel-title
+              font-weight: 400
+              font-size: $h2-size
+              line-height: 30px
+
+              > a
+                display: block
+                text-decoration: none
+                padding: 0 25px
+                color: rgba(#fff, 0.75)
+                transition: 0.2s
+
+                &:hover
+                  text-decoration: none
+                  color: rgba(#fff, 1)
+                  transition: 0.2s
+
+                &:after
+                  content: '\f078'
+                  display: inline-block
+                  transform: rotate(180deg)
+                  transition: 0.2s
+                  font: normal normal normal 14px/1 FontAwesome
+                  text-rendering: auto
+                  -webkit-font-smoothing: antialiased
+                  font-size: 0.725em
+                  list-style: 0.75em
+                  line-height: 30px
+                  visibility: -15%
+                  position: absolute
+                  right: 10px
+
+                &.collapsed, &[aria-expanded='false']
+                  &:after
+                    transform: rotate(0deg)
+
+          .panel-body
+            border-top: 0
+            padding: 10px 25px 10px 50px
+            color: #fff
+
+            .text-muted
+              color: rgba(#fff, 0.4)
+
+          .list-group
+            border: none
+            background-color: transparent
+            padding-top: 5px
+
+            .list-group-item
+              position: relative
+              margin: 0
+              padding: 5px 25px 5px 40px
+              border: none
+              background-color: transparent
+              color: #fff
+              font-weight: 700
+
+              &:last-child
+                padding-bottom: 15px
+
+              &:first-child
+                &:last-child
+                  padding-bottom: 8px
+
+              > span
+                display: block
+                border-radius: 3px
+                padding: 5px 10px
+                background-color: rgba(#fff, 0)
+                transition: 0.2s
+
+                > .fa
+                  vertical-align: middle
+                  &:first-child
+                    padding-right: 10px
+
+              &, &:first-child, &:last-child
+                border-radius: 0
+
+              &:hover
+                > span
+                  background-color: rgba(#fff, 0.1)
+                  transition: 0.2s
+
+              &.active
+                > span
+                  background-color: rgba(#fff, 0.9)
+                  color: $darkblue
+                  transition: 0.2s
+
+              &.disabled
+                opacity: 0.5
+
+              &.separator
+                display: block
+                height: 2px
+                width: 30px
+                padding: 0
+                margin: 5px 0 5px 50px
+                background-color: rgba(#fff, 0.2)
+
+              > .list-group
+                margin: 0
+
+                > .list-group-item
+                  padding: 5px 0px 5px 10px
+
+  #menu_top
+    display: block
+    letter-spacing: -0.31em
+    text-rendering: optimizespeed
+    font-weight: 400
+    height: $menuH
+    transition: 0.1s
+    padding-left: $menuH
+    background-color: $blue
+    color: #fff
+
+    > *
+      letter-spacing: normal
+      word-spacing: normal
+      text-rendering: auto
+      vertical-align: top
+
+    > .brandname, > .menu-content
+      display: inline-block
+      overflow: hidden
+
+      &.brandname
+        width: 140px
+        padding-right: 10px
+
+      &.menu-content
+        position: relative
+        width: calc(100% - 140px)
+        height: $menuH
+        line-height: $menuH
+
+        &:before
+          content: ''
+          display: block
+          position: absolute
+          height: 14px
+          width: 1px
+          background-color: rgba(#fff, 0.8)
+          left: 0
+          top: 13px
+
+        .menu-item
+          padding: 0 10px
+
+          .fa
+            padding-left: 0.5em
+
+            &:first-child
+              padding-left: 0
+
+        > *, .menu-item
+          display: inline-block
+          color: #fff
+
+        .menu-item-group
+          > .menu-item
+            background-color: rgba(#fff, 0)
+            text-decoration: none
+
+            &:hover, &.active
+              text-decoration: none
+              background-color: rgba(#fff, 0.2)
+
+  // Breadcrumb in nav
+  .breadcrumb
+    padding: 0
+    margin: 0
+    background-color: transparent
+    border-radius: 0
+
+    > li
+      > a
+        color: rgba(#fff, 0.9)
+        transition: 0.2s
+
+        &:hover
+          text-decoration: none
+          color: rgba(#fff, 1)
+          transition: 0.2s
+
+      &.active
+        color: #fff
+
+      + li:before
+        content: '\003e'
+        color: #fff
+        padding: 0 0.5em
+
+  // Nav panels
+  .nav_panel
+    display: none
+    letter-spacing: normal
+    word-spacing: normal
+    text-rendering: auto
+    width: $menuW
+    min-height: $menuW
+    float: right
+    background-color: #fff
+    color: $darkgrey
+    box-shadow: 0 0 3px $darkgrey
+
+    &.open
+      display: block
+
+    .panel-title
+      margin: 0
+      padding: 15px 20px
+      font-size: inherit
+      border-bottom: 1px solid $grey
+
+      > h1, > h2, h3
+        margin: 0
+
+    .panel-body
+      padding: 15px 20px
+
+  // Sticky behavior
+  &.sticky
+    &, #menu_left .openMenu, #menu_top
+      height: $menuH * 2
+      transition: 0.1s
+
+    #menu_top > .menu-content > .menu-item-group
+      display: none
+
+    .sticky-content
+      height: $menuH
+      padding: 0 50px 0 75px
+      margin-top: -4px
+
+      > *
+        display: inline-block
+
+        &.sticky-ptitle
+          width: 60%
+          height: $menuH
+
+          h1
+            position: relative
+            line-height: 1.1
+            white-space: nowrap
+            max-height: 1.1em
+            margin: 0 -1.4em 0 0
+            padding: 0 1.4em 0 0
+            overflow: hidden
+
+            &:before
+              content: '[...]'
+              font-size: 0.65em
+              position: absolute
+              z-index: 5
+              right: 0
+              bottom: 4px
+
+            &:after
+              content: ''
+              position: absolute
+              z-index: 5
+              right: 0
+              width: 1.4em
+              height: 1em
+              margin-top: 0.2em
+              background-color: $blue
+
+            .small.fa
+              color: #fff
+              margin-left: 0.5em
+
+        &.sticky-paction
+          width: 40%
+          text-align: right
+          vertical-align: top
+
+          > *
+            display: inline-block
+            vertical-align: middle
+
+            + .btn
+              margin-left: 10px

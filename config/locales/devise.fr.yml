@@ -2,6 +2,12 @@
 
 fr:
   devise:
+    login:
+      label_username: "Nom d'utilisateur"
+      label_password: "Mot de passe"
+      label_button: "Se connecter"
+      label_remember_me: "Se souvenir de moi"
+      notice: ""
     confirmations:
       confirmed: "Votre compte a été validé."
       send_instructions: "Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes."
