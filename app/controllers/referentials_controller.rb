@@ -2,12 +2,22 @@ require 'rest-client'
 require 'json'
 require 'referential'
 class ReferentialsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     referentials = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     @referentials_tab = JSON.parse(referentials)
     @referentials_tab.sort_by! {|referential| referential["Slug"]}
+  end
+
+  def show
+    @referential = Referential.new(
+      id: params[:id],
+      slug: params[:slug],
+      next_reload_at: params[:next_reload_at],
+      token: params[:token],
+      partner: params[:partner]
+    )
   end
 
   def new
@@ -32,7 +42,8 @@ class ReferentialsController < ApplicationController
       id: params[:id],
       slug: params[:slug],
       next_reload_at: params[:next_reload_at],
-      token: params[:token]
+      token: params[:token],
+      partner: params[:partner]
     )
   end
 
