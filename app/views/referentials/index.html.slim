@@ -28,8 +28,14 @@
             tr
               td = i["Slug"]
               td = i["NextReloadAt"]
-              td = i["Tokens"].count
-              td = i["Partners"].count
+              - if i["Tokens"] == nil
+                td 0
+              - else
+                td = i["Tokens"].count
+              - if i["Partners"] == nil
+                td 0
+              - else
+                td = i["Partners"].count
               td.actions
                 .btn-group
                   .btn.dropdown-toggle data-toggle="dropdown"
