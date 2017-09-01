@@ -31,8 +31,10 @@ class ReferentialsController < ApplicationController
   def create
     attributes ={
       Slug: params[:new_slug],
-      Tokens: [params[:token]]
     }
+
+    attributes[:Tokens] = [params[:token]] unless params[:token].blank?
+
 
     RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
@@ -54,8 +56,8 @@ class ReferentialsController < ApplicationController
     attributes ={
       Slug: params[:new_slug],
       NextReloadAt: params[:next_reload_at],
-      Tokens: [params[:token]]
     }
+    attributes[:Tokens] = [params[:token]] unless params[:token].blank?
 
     RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
     redirect_to referentials_path
