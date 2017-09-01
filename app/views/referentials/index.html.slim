@@ -41,15 +41,16 @@
                   .btn.dropdown-toggle data-toggle="dropdown"
                     span.fa.fa-cog
                   ul.dropdown-menu
-                    li.show-action
-                      = link_to referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
-                        | Voir
-                    li
-                      = link_to referential_partners_path(i["Slug"], token: i["Tokens"].try(:first)) do
-                        | Consulter les partners
-                    li.edit-action
-                      = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
-                        | Editer
+                    - if i["Tokens"].present?
+                      li.show-action
+                        = link_to referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
+                          | Voir
+                      li
+                        = link_to referential_partners_path(i["Slug"], token: i["Tokens"].try(:first)) do
+                          | Consulter les partners
+                      li.edit-action
+                        = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
+                          | Editer
                     li.delete-action
                       = link_to referential_path(i["Id"]), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"} do
                         span.fa.fa-trash.mr-xs
