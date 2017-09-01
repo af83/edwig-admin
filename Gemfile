@@ -45,6 +45,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# TODO to be moved to edwig-ruby
+gem 'active_attr'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -52,6 +55,7 @@ group :development, :test do
   gem 'factory_girl', '~> 4.7'
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'capybara'
+  gem 'fakeweb'
 end
 
 group :development do
