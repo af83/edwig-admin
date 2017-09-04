@@ -7,21 +7,20 @@
 .page_content
   .row
     .col-md-12
-      = link_to referential_partners_path(token: params[:token]), class: 'btn btn-default back-button' do
+      = link_to referential_partners_path(@referential.id), class: 'btn btn-default back-button' do
         em.fa.fa-arrow-left
   .container-fluid
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
-        = form_tag referential_partner_path(slug: @partner.slug, token: params[:token]), method: :put do
+        = form_tag referential_partner_path(@referential.id, @partner.id), method: :put do
           .row
             .col-lg-12
             .form-group
               = label_tag :partner_slug
-              = text_field_tag :partner_slug, nil, value: @partner.slug, class: "form-control"
+              = text_field_tag "partner[slug]", nil, value: @partner.slug, class: "form-control"
             .form-group
-              = label_tag :connectors
-              = select_tag(:connectors, options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")
-            = hidden_field_tag :id, @partner.id
+              /= label_tag :connectors
+              /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")
             .form-group
               button.btn.btn-primary[type="submit"]
                 = t('partners.edit.submit')
