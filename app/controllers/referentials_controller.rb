@@ -6,65 +6,45 @@ class ReferentialsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    referentials = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
-    @referentials_tab = JSON.parse(referentials)
-    @referentials_tab.sort_by! {|referential| referential["Slug"]}
+    @referentials = edwig_server.referentials.sort_by!(&:slug)
   end
 
   def show
-    @referential = Referential.new(
-      id: params[:id],
-      slug: params[:slug],
-      next_reload_at: params[:next_reload_at],
-      token: params[:token],
-      partner: params[:partner]
-    )
+    @referential = edwig_server.find_referential params[:id]
   end
 
   def new
-    @referential = Referential.new(
-      slug: params[:slug],
-      token: params[:token]
-    )
+    @referential = Edwig::Referential.new(edwig_server)
   end
 
   def create
-    attributes ={
-      Slug: params[:new_slug],
-    }
+    @referential = edwig_server.create_referential params[:referential]
 
-    attributes[:Tokens] = [params[:token]] unless params[:token].blank?
-
-
-    RestClient.post("#{Rails.configuration.edwig_api_host}/_referentials", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
-    redirect_to referentials_path
+    if @referential.valid?
+      redirect_to referentials_path
+    else
+      render :new
+    end
   end
 
   def edit
-    referential = RestClient.get("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
-    parsed_referential = JSON.parse(referential)
-
-    @referential = Referential.new(
-      id: parsed_referential["Id"],
-      slug: parsed_referential["Slug"],
-      next_reload_at: parsed_referential["NextReloadAt"],
-      token: parsed_referential["Tokens"]
-    )
+    @referential = edwig_server.find_referential params[:id]
   end
 
   def update
-    attributes ={
-      Slug: params[:new_slug],
-      NextReloadAt: params[:next_reload_at],
-    }
-    attributes[:Tokens] = [params[:token]] unless params[:token].blank?
+    @referential = edwig_server.find_referential params[:id]
+    @referential.attributes = params[:referential]
 
-    RestClient.put("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:id]}", attributes.to_json, {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
-    redirect_to referentials_path
+    if @referential.save
+      redirect_to referentials_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    RestClient.delete("#{Rails.configuration.edwig_api_host}/_referentials/#{params[:slug]}", {content_type: :json, :Authorization => "Token token=#{Rails.configuration.edwig_token}"})
+    referential = edwig_server.find_referential params[:id]
+    referential.destroy
     redirect_to referentials_path
   end
 end

@@ -12,16 +12,15 @@
   .container-fluid
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
-        = form_tag referential_path(slug: @referential.slug), method: :put do
+        = form_tag referential_path(@referential.id), method: :put do
           .row
             .col-lg-12
             .form-group
-              = label_tag :new_slug
-              = text_field_tag :new_slug, nil, value: @referential.slug, class: "form-control"
+              = label_tag :slug
+              = text_field_tag "referential[slug]", nil, value: @referential.slug, class: "form-control"
             .form-group
-              = label_tag :token
-              = text_field_tag :token, nil, value: @referential.token, class: "form-control"
-            = hidden_field_tag :id, @referential.id
+              = label_tag :tokens
+              = text_field_tag "referential[token_list]", nil, value: @referential.token_list, class: "form-control"
             .form-group
               button.btn.btn-primary[type="submit"]
                 = t('referentials.edit.submit')

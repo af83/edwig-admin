@@ -16,6 +16,6 @@
         = definition_list t('ezaeza'),
                 t('attributes.id') => @referential.id,
                 t('attributes.slug') => @referential.slug,
-                t('attributes.token') => @referential.token,
+                t('attributes.token') => @referential.token_list,
                 t('attributes.next_reload_at') => @referential.next_reload_at,
-                t('attributes.partner') => @referential.partner
+                t('attributes.partners') => @referential.partner_ids.count
