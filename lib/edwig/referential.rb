@@ -1,47 +1,39 @@
 # TODO to be moved to edwig-ruby
 module Edwig
-  class Referential
+  class Referential < Model
     attr_reader :server
 
     def initialize(server, attributes = {})
+      super attributes
+
       @server = server
-      self.attributes = attributes
     end
 
-    def get(path = "")
-      server.get("#{slug}/#{path}", token: default_token)
+    def get(path)
+      server.get "#{slug}/#{path}", token: default_token
+    end
+
+    def post(path, body)
+      server.post "#{slug}/#{path}", body, token: default_token
+    end
+
+    def put(path, body)
+      server.put "#{slug}/#{path}", body, token: default_token
+    end
+
+    def delete(path)
+      server.delete "#{slug}/#{path}", token: default_token
     end
 
     def default_token
       tokens.try :first
     end
 
-    def self.from_json(server, data)
-      if Array === data
-        return data.map do |attributes|
-          from_json server, attributes
-        end
-      end
-
-      Referential.new server, api_attributes(data)
-    end
-
-    def self.api_attributes(api_data)
-      api_data.transform_keys(&:underscore)
-    end
-    def api_attributes(api_data)
-      self.class.api_attributes api_data
-    end
-
-    include ActiveAttr::Attributes
-    include ActiveAttr::MassAssignment
-    include ActiveAttr::TypecastedAttributes
-
     attribute :id
     attribute :slug
-    attribute :tokens
+    attribute :tokens, default: []
     attribute :next_reload_at, type: DateTime
-    attribute :partner_ids
+    attribute :partner_ids, default: []
     alias_method :'partners=', :'partner_ids='
 
     def partners
@@ -52,8 +44,10 @@ module Edwig
       Partner.new(self, attributes).tap(&:save)
     end
 
-    def persisted?
-      id.present?
+    def find_partner(id)
+      Partner.from_json self, get("partners/#{id}")
+    rescue RestClient::NotFound
+      nil
     end
 
     def save
@@ -71,7 +65,7 @@ module Edwig
     end
 
     def to_api_json
-      { "Slug": slug, "Tokens": tokens }.to_json
+      { "Slug": slug, "Tokens": tokens }
     end
 
   end

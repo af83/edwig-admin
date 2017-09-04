@@ -1,34 +1,19 @@
 module Edwig
-  class Partner
+  class Partner < Model
 
     attr_reader :referential
 
     def initialize(referential, attributes = {})
+      super attributes
       @referential = referential
-      self.attributes = attributes
     end
-
-    def self.from_json(referential, data)
-      if Array === data
-        return data.map do |attributes|
-          from_json referential, attributes
-        end
-      end
-
-      data = data.transform_keys(&:underscore)
-      Partner.new referential, data
-    end
-
-    include ActiveAttr::Attributes
-    include ActiveAttr::MassAssignment
-    include ActiveAttr::TypecastedAttributes
 
     attribute :id
     attribute :slug
     attribute :operationnal_status
     attribute :service_started_at
-    attribute :connector_types
-    attribute :settings
+    attribute :connector_types, default: []
+    attribute :settings, default: {}
 
     def partner_status=(attributes = {})
       self.attributes = attributes.transform_keys(&:underscore)
@@ -38,9 +23,17 @@ module Edwig
       if persisted?
         referential.put("partners/#{id}", to_api_json)
       else
-        self.attributes = api_attributes(server.post("partners", to_api_json))
+        self.attributes = api_attributes(referential.post("partners", to_api_json))
         id.present?
       end
+    end
+
+    def destroy
+      referential.delete "partners/#{id}"
+    end
+
+    def to_api_json
+      { "Slug": slug, "ConnectorTypes": connector_types, "Settings": settings }
     end
 
   end

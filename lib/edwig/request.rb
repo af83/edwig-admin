@@ -2,13 +2,13 @@ module Edwig
   class Request
     attr_accessor :method, :path, :base_url, :token, :debug, :body
 
-    def initialize(method, path, body = nil, options = {})
-      if Hash === body
-        body, options = nil, body
-      end
-
+    def initialize(method, path, body, options = {})
       self.method, self.path, self.body = method, path, body
       options.each { |k,v| send "#{k}=", v }
+
+      %i{method path base_url}.each do |attribute|
+        raise "No #{attribute}" if send(attribute).blank?
+      end
     end
 
     def headers
@@ -18,6 +18,10 @@ module Edwig
     end
 
     def execute
+      if body && !body.try(:acts_like_string?)
+        self.body = body.to_json
+      end
+
       if debug
         puts "#{method.upcase} #{base_url}/#{path} #{body} #{headers.inspect}"
       end

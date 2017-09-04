@@ -12,7 +12,7 @@ module Edwig
     end
 
     def get(path, options = {})
-      Request.new(:get, path, http_options(options)).execute
+      Request.new(:get, path, nil, http_options(options)).execute
     end
 
     def post(path, body, options = {})
@@ -24,11 +24,21 @@ module Edwig
     end
 
     def delete(path, options = {})
-      Request.new(:delete, path, http_options(options)).execute
+      Request.new(:delete, path, nil, http_options(options)).execute
     end
 
     def referentials
       Referential.from_json self, get("_referentials")
+    end
+
+    def find_referential(id)
+      Referential.from_json self, get("_referentials/#{id}")
+    rescue RestClient::NotFound
+      nil
+    end
+
+    def find_referential_by_slug(slug)
+      referentials.find { |r| r.slug == slug }
     end
 
     def create_referential(attributes = {})
