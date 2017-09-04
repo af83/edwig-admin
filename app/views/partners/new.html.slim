@@ -7,12 +7,12 @@
 .page_content
   .row
     .col-md-12
-      = link_to referential_partners_path(@referential.id), class: 'btn btn-default back-button' do
+      = link_to referential_path(@referential.id), class: 'btn btn-default back-button' do
         em.fa.fa-arrow-left
   .container-fluid
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
-        = form_tag referential_partners_path(@referential.id) do
+        = form_tag referential_path(@referential.id) do
           .col-lg-12
             .form-group
               = label_tag :partner_slug
@@ -20,5 +20,25 @@
             .form-group
               /= label_tag :connectors
               /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")            .form-group
+              javascript:
+                var room = 1;
+                function settings() {
+
+                  room++;
+                  var objTo = document.getElementById('settings')
+                  var divtest = document.createElement("div");
+                  divtest.setAttribute("class", "form-group removeclass" + room);
+                  var rdiv = 'removeclass' + room;
+                  divtest.innerHTML = '<div class="row"><div class="col-sm-3 nopadding"> <div class="form-group"><input type="text" class="form-control" id="settingName" name="settingName[]" value="" placeholder="connectors"></div></div><div class="col-sm-3 nopadding"> <div class="form-group"> <div class="input-group"><select class="form-control" id="connectors" name="connectors[]"> <option value="">Connecteurs</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> </select> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_settings(' + room + ');"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> </div></div></div></div><div class="clear"></div></div>';
+
+                  objTo.appendChild(divtest)
+                }
+                function remove_settings(rid) {
+                  $('.removeclass' + rid).remove();
+                }
+              #settings
+              button.btn.btn-success onclick="settings();" type="button"
+                span.glyphicon.glyphicon-plus aria-hidden="true"
+            .form-group
               button.btn.btn-primary[type="submit"]
                 = t('partners.create.submit')

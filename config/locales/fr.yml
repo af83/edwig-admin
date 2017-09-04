@@ -13,7 +13,8 @@ fr:
       submit: "Editer"
     attributes:
       next_reload_at: "NextReloadAt"
-      token: "Token"
+      token: "Tokens"
+      partner: "Partners"
   partners:
     title: "Liste des Partners pour le Referential : "
     create:

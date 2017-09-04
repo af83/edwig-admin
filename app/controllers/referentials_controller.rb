@@ -11,6 +11,7 @@ class ReferentialsController < ApplicationController
 
   def show
     @referential = edwig_server.find_referential params[:id]
+    @partners = @referential.partners
   end
 
   def new

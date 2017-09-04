@@ -3,9 +3,6 @@ require 'json'
 require 'partner'
 
 class PartnersController < ApplicationController
-  def index
-    @partners = referential.partners
-  end
 
   def show
 
@@ -19,7 +16,7 @@ class PartnersController < ApplicationController
     @partner = referential.create_partner params[:partner]
 
     if @partner.valid?
-      redirect_to referential_partners_path(referential.id)
+      redirect_to referential_path(referential.id)
     else
       render :new
     end
@@ -35,7 +32,7 @@ class PartnersController < ApplicationController
     @partner.attributes = params[:partner]
 
     if @partner.save
-      redirect_to referential_partners_path(referential.id)
+      redirect_to referential_path(referential.id)
     else
       render :edit
     end
@@ -48,6 +45,6 @@ class PartnersController < ApplicationController
   def destroy
     partner = referential.find_partner params[:id]
     partner.destroy
-    redirect_to referential_partners_path(referential.id)
+    redirect_to referential_path(referential.id)
   end
 end
