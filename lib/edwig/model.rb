@@ -31,5 +31,9 @@ module Edwig
       id.present?
     end
 
+    def valid?
+      persisted?
+    end
+
   end
 end

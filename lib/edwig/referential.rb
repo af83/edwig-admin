@@ -36,6 +36,14 @@ module Edwig
     attribute :partner_ids, default: []
     alias_method :'partners=', :'partner_ids='
 
+    def token_list
+      tokens.join(',')
+    end
+
+    def token_list=(list)
+      self.tokens = list.split(",")
+    end
+
     def partners
       Partner.from_json self, get("partners")
     end

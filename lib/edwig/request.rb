@@ -17,14 +17,16 @@ module Edwig
       end
     end
 
+    def log(message)
+      Rails.logger.debug message if debug
+    end
+
     def execute
       if body && !body.try(:acts_like_string?)
         self.body = body.to_json
       end
 
-      if debug
-        puts "#{method.upcase} #{base_url}/#{path} #{body} #{headers.inspect}"
-      end
+      log "#{method.upcase} #{base_url}/#{path} #{body} #{headers.inspect}"
 
       arguments = [ "#{base_url}/#{path}" ]
       arguments << body if method.in?([:post, :put])
@@ -32,13 +34,11 @@ module Edwig
 
       response = RestClient.send method, *arguments
 
-      if debug
-        puts "#{response.code} #{response.body}"
-      end
+      log "#{response.code} #{response.body}"
 
       JSON.parse response
     rescue RestClient::ExceptionWithResponse => err
-      puts err.response.body
+      log "RestClient::ExceptionWithResponse #{err.response.body}"
       raise err
     end
 
