@@ -1,0 +1,66 @@
+//-----------------------------//
+//  sBoiv (custom icon fonts)  //
+//-----------------------------//
+
+.sb
+  display: inline-block
+  font-family: 'sboiv' !important
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: normal
+  line-height: 1
+  font-size: inherit
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  &[data-textinside]
+    position: relative
+    // width: 1em
+    // height: 1em
+    &:after
+      content: attr(data-textinside)
+      font-family: $base-font-family
+      font-size: 0.6em
+      font-weight: 700
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      text-align: center
+      color: #fff
+
+
+  &.sb-lg
+    font-size: 1.33333333em
+    line-height: 0.75em
+    vertical-align: -15%
+
+  &.sb-2x
+    font-size: 2em
+
+  &.sb-3x
+    font-size: 3em
+
+  &.sb-4x
+    font-size: 4em
+
+  &.sb-5x
+    font-size: 5em
+
+
+.sb-update-vj:before
+  content: '\e900'
+
+.sb-preparing:before
+  content: '\e901'
+
+.sb-current-ref:before
+  content: '\e902'
+
+.sb-chrono:before
+  content: '\e903'

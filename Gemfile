@@ -13,7 +13,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 4.7'
 gem 'rails-jquery-tags-input'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,6 +30,8 @@ gem 'devise_invitable', '~> 1.7', '>= 1.7.2'
 gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 gem 'slim', '~> 3.0', '>= 3.0.8'
+
+gem 'cocoon'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -74,3 +76,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# Rails Assets
+source 'https://rails-assets.org' do
+  gem 'rails-assets-footable', '~> 2.0.3'
+  gem 'rails-assets-bootstrap-sass-official', '~> 3.3.0'
+end

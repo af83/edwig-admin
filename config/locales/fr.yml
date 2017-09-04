@@ -4,7 +4,7 @@ fr:
     invite_button: "Inviter"
     logout_button: "déconnexion"
   referentials:
-    title: "Referential"
+    title: "Referential "
     create:
       title: "Créer un Referential"
       submit: "Créer"
@@ -15,7 +15,7 @@ fr:
       next_reload_at: "NextReloadAt"
       token: "Token"
   partners:
-    title: "Liste des Partners pour le Referential :"
+    title: "Liste des Partners pour le Referential : "
     create:
       title: "Créer un Partner"
       submit: "Créer"
@@ -26,6 +26,8 @@ fr:
       partner_status: "PartnerStatus"
       connector_types: "ConnectorTypes"
       settings: "Settings"
+      operational_status: "OperationalStatus"
   attributes:
     id: "ID"
     slug: "Slug"
+    partner: "Partner"

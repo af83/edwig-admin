@@ -1,47 +1,57 @@
-.container
-  .row
-    .col-md-12
-      br
-      br
-  .row
-    h1.text-center
-      = t('referentials.title')
-    .col-md-12
-      .panel.panel-default.panel-table
-        .panel-heading
-          .row
-            .col-md-12
-              = link_to t('referentials.create.title'), new_referential_path, class: 'btn btn-sm btn-primary btn-create pull-right'
+/ PageHeader
+- header_params = ['map-marker',
+        t('referentials.title'),
+        '']
+- header_params << link_to(t('referentials.create.title'), new_referential_path, class: 'btn btn-default')
+= pageheader(*header_params)
 
-        .panel-body
-          table.table.table-striped.table-bordered.table-list
-            thead
-              tr
-                th.hidden-xs
-                  = t('attributes.id')
-                th
-                  = t('attributes.slug')
-                th
-                  = t('referentials.attributes.next_reload_at')
-                th
-                  = t('referentials.attributes.token')
-                th
-                  em.fa.fa-cog
-            tbody
-              - @referentials_tab.each do |i|
-                tr
-                  td.hidden-xs
-                    = i["Id"]
-                  td.slug
-                    = i["Slug"]
-                  td
-                    = i["NextReloadAt"]
-                  td.tokens
-                    = i["Tokens"].join(',') if i["Tokens"]
-                  td[align="center"]
-                    = link_to referential_partners_path(i["Slug"], token: i["Tokens"].try(:first)), class: 'btn btn-default show' do
-                      em.fa.fa.fa-eye
-                    = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"]}), class: 'btn btn-default edit' do
-                      em.fa.fa.fa-pencil
-                    = link_to referential_path(i["Id"]), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"}, class: 'btn btn-danger delete' do
-                      em.fa.fa.fa-trash
+/ PageContent
+.page_content
+  .container-fluid
+    - if @referentials_tab.any?
+    .row
+      .col-lg-12
+        table.table.has-filter
+          thead
+            tr
+              th
+                = t('attributes.slug')
+              th
+                = t('attributes.attributes.next_reload_at')
+              th
+                = t('attributes.attributes.token')
+              th
+                = t('attributes.partner')
+              th
+          tbody
+          - @referentials_tab.each do |i|
+            tr
+              td.slug = i["Slug"]
+              td = i["NextReloadAt"]
+              - if i["Tokens"] == nil
+                td.tokens 0
+              - else
+                td.tokens = i["Tokens"].count
+              - if i["Partners"] == nil
+                td 0
+              - else
+                td = i["Partners"].count
+              td.actions
+                .btn-group
+                  .btn.dropdown-toggle data-toggle="dropdown"
+                    span.fa.fa-cog
+                  ul.dropdown-menu
+                    - if i["Tokens"].present?
+                      li.show-action
+                        = link_to referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
+                          | Voir
+                      li
+                        = link_to referential_partners_path(i["Slug"], token: i["Tokens"].try(:first)) do
+                          | Consulter les partners
+                      li.edit-action
+                        = link_to edit_referential_path({slug: i["Slug"], token: i["Tokens"].try(:first), id: i["Id"], next_reload_at: i["NextReloadAt"], partner: i["Partners"]}) do
+                          | Editer
+                    li.delete-action
+                      = link_to referential_path(i["Id"]), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"} do
+                        span.fa.fa-trash.mr-xs
+                        | Supprimer

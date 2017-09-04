@@ -6,6 +6,7 @@ class PartnersController < ApplicationController
   def index
     @referential_slug = params[:referential_slug]
     @referential_token = params[:token]
+
     partners = RestClient.get("#{Rails.configuration.edwig_api_host}/#{params[:referential_slug]}/partners", {content_type: :json, :Authorization => "Token token=#{params[:token]}"})
     @partners_tab = JSON.parse(partners)
   end
