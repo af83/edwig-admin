@@ -8,6 +8,25 @@ module Edwig
       @referential = referential
     end
 
+
+    def self.connector_types
+      %w{
+      siri-stop-points-discovery-request-broadcaster
+      siri-service-request-broadcaster
+      siri-stop-monitoring-request-collector
+      siri-stop-monitoring-request-broadcaster
+      siri-stop-monitoring-subscription-collector
+      siri-general-message-subscription-broadcaster
+      siri-general-message-request-collector
+      siri-general-message-request-broadcaster
+      siri-general-message-subscription-collector
+      siri-estimated-timetable-request-broadcaster
+      siri-stop-monitoring-subscription-broadcaster
+      siri-check-status-client
+      siri-check-status-server
+      }
+    end
+
     attribute :id
     attribute :slug
     attribute :operationnal_status

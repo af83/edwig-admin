@@ -19,6 +19,13 @@
               = label_tag :partner_slug
               = text_field_tag "partner[slug]", nil, value: @partner.slug, class: "form-control"
             .form-group
+              = label_tag :partner_connector_types
+              ul
+                - Edwig::Partner.connector_types.each do |connector|
+                  li
+                    = check_box_tag "partner[connector_types][]", connector, @partner.connector_types.include?(connector)
+                    = label_tag connector
+            .form-group
               /= label_tag :connectors
               /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")
             .form-group

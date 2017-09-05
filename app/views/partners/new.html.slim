@@ -18,18 +18,25 @@
               = label_tag :partner_slug
               = text_field_tag "partner[slug]", nil, value: @partner.slug, class: "form-control"
             .form-group
-              /= label_tag :connectors
+              = label_tag :partner_connector_types
+              ul
+                - Edwig::Partner.connector_types.each do |connector|
+                  li
+                    = check_box_tag "partner[connector_types][]", connector, @partner.connector_types.include?(connector)
+                    = label_tag connector
+            .form-group
+              = label_tag :settings
               /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")            .form-group
               javascript:
-                var room = 1;
+                var setting = 1;
                 function settings() {
 
-                  room++;
-                  var objTo = document.getElementById('settings')
+                  setting++;
+                  var objTo = document.getElementById('settings');
                   var divtest = document.createElement("div");
-                  divtest.setAttribute("class", "form-group removeclass" + room);
-                  var rdiv = 'removeclass' + room;
-                  divtest.innerHTML = '<div class="row"><div class="col-sm-3 nopadding"> <div class="form-group"><input type="text" class="form-control" id="settingName" name="settingName[]" value="" placeholder="connectors"></div></div><div class="col-sm-3 nopadding"> <div class="form-group"> <div class="input-group"><select class="form-control" id="connectors" name="connectors[]"> <option value="">Connecteurs</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> </select> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_settings(' + room + ');"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> </div></div></div></div><div class="clear"></div></div>';
+                  divtest.setAttribute("class", "form-group removeclass" + setting);
+                  var rdiv = 'removeclass' + setting;
+                  divtest.innerHTML = '<div class="row"><div class="col-sm-3"> <div class="form-group"><input type="text" class="form-control" id="settingName" name="settingName[]" value="" placeholder="settings"></div></div><div class="col-sm-9"> <div class="form-group"> <div class="input-group"><select class="form-control" id="connectors" name="connectors[]"> <option value="">Connecteurs</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> </select> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_settings(' + setting + ');"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> </div></div></div></div></div>';
 
                   objTo.appendChild(divtest)
                 }
@@ -37,7 +44,7 @@
                   $('.removeclass' + rid).remove();
                 }
               #settings
-              button.btn.btn-success onclick="settings();" type="button"
+              button.btn.btn-primary.pull-right onclick="settings();" type="button"
                 span.glyphicon.glyphicon-plus aria-hidden="true"
             .form-group
               button.btn.btn-primary[type="submit"]
