@@ -1,7 +1,3 @@
-require 'rest-client'
-require 'json'
-require 'referential'
-
 class ReferentialsController < ApplicationController
   before_action :authenticate_user!
 
