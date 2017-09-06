@@ -25,26 +25,15 @@
                     = check_box_tag "partner[connector_types][]", connector, @partner.connector_types.include?(connector)
                     = label_tag connector
             .form-group
-              = label_tag :settings
-              /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")            .form-group
-              javascript:
-                var setting = 1;
-                function settings() {
-
-                  setting++;
-                  var objTo = document.getElementById('settings');
-                  var divtest = document.createElement("div");
-                  divtest.setAttribute("class", "form-group removeclass" + setting);
-                  var rdiv = 'removeclass' + setting;
-                  divtest.innerHTML = '<div class="row"><div class="col-sm-3"> <div class="form-group"><input type="text" class="form-control" id="settingName" name="settingName[]" value="" placeholder="settings"></div></div><div class="col-sm-9"> <div class="form-group"> <div class="input-group"><select class="form-control" id="connectors" name="connectors[]"> <option value="">Connecteurs</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> </select> <div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_settings(' + setting + ');"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> </div></div></div></div></div>';
-
-                  objTo.appendChild(divtest)
-                }
-                function remove_settings(rid) {
-                  $('.removeclass' + rid).remove();
-                }
-              #settings
-              button.btn.btn-primary.pull-right onclick="settings();" type="button"
+              = label_tag :partner_settings
+              #partner_setting_template.hidden
+                .form-group
+                  = text_field_tag "partner[settings][index][key]", nil, class: "form-control", :placeholder => "settings key",  disabled: true
+                  = text_field_tag "partner[settings][index][value]", nil, class: "form-control", :placeholder => "settings value", disabled: true
+                .form-group
+                  button.btn.btn-danger.remove_partner_setting type="button"
+                    span.glyphicon.glyphicon-minus aria-hidden="true"
+              button.btn.btn-primary.pull-right#add_partner_setting type="button"
                 span.glyphicon.glyphicon-plus aria-hidden="true"
             .form-group
               button.btn.btn-primary[type="submit"]

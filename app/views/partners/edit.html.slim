@@ -13,8 +13,7 @@
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
         = form_tag referential_partner_path(@referential.id, @partner.id), method: :put do
-          .row
-            .col-lg-12
+          .col-lg-12
             .form-group
               = label_tag :partner_slug
               = text_field_tag "partner[slug]", nil, value: @partner.slug, class: "form-control"
@@ -25,9 +24,25 @@
                   li
                     = check_box_tag "partner[connector_types][]", connector, @partner.connector_types.include?(connector)
                     = label_tag connector
-            .form-group
-              /= label_tag :connectors
-              /= select_tag("partner[connector_types]", options_for_select([['RATPDEV:Concerto'], ['poor'], ['mediocre'], ['good'], ['great']]), value: @partner.connector_types, selected: :connectors, class: "js-connector-select form-control")
+              = label_tag :partner_settings
+              #partner_setting_template.hidden
+                .form-group
+                  = text_field_tag "partner[settings][index][key]", nil, value: nil, class: "form-control", :placeholder => "settings key", disabled: true
+                  = text_field_tag "partner[settings][index][value]", nil, value: nil, class: "form-control", :placeholder => "settings value", disabled: true
+                .form-group
+                  button.btn.btn-danger.remove_partner_setting type="button"
+                    span.glyphicon.glyphicon-minus aria-hidden="true"
+
+              - @partner.settings.each_with_index do |(key,value), index|
+                .form-group
+                  = text_field_tag "partner[settings][#{index}][key]", nil, value: key, class: "form-control", :placeholder => "settings key"
+                  = text_field_tag "partner[settings][#{index}][value]", nil, value: value, class: "form-control", :placeholder => "settings value"
+                .form-group
+                  button.btn.btn-danger.remove_partner_setting type="button"
+                    span.glyphicon.glyphicon-minus aria-hidden="true"
+
+              button.btn.btn-primary.pull-right#add_partner_setting type="button"
+                span.glyphicon.glyphicon-plus aria-hidden="true"
             .form-group
               button.btn.btn-primary[type="submit"]
                 = t('partners.edit.submit')

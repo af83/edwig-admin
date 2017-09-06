@@ -5,6 +5,7 @@ fr:
     logout_button: "déconnexion"
   referentials:
     title: "Referential "
+    listing: "Listes des Referentials"
     create:
       title: "Créer un Referential"
       submit: "Créer"
