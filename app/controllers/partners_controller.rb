@@ -1,7 +1,3 @@
-require 'rest-client'
-require 'json'
-require 'partner'
-
 class PartnersController < ApplicationController
 
   def show
@@ -13,7 +9,7 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @partner = referential.create_partner params[:partner]
+    @partner = referential.create_partner prepare_settings(params[:partner])
 
     if @partner.valid?
       redirect_to referential_path(referential.id)
@@ -29,7 +25,7 @@ class PartnersController < ApplicationController
   def update
     @partner = referential.find_partner params[:id]
 
-    @partner.attributes = params[:partner]
+    @partner.attributes = prepare_settings(params[:partner])
 
     if @partner.save
       redirect_to referential_path(referential.id)
@@ -47,4 +43,12 @@ class PartnersController < ApplicationController
     partner.destroy
     redirect_to referential_path(referential.id)
   end
+
+  private
+
+  def prepare_settings(attributes)
+    attributes[:settings] = Hash[(attributes[:settings]||[]).map { |k,v| v.values }]
+    attributes
+  end
+
 end
