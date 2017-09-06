@@ -12,85 +12,15 @@
         .panel-heading
           h4.panel-title
             = link_to '#miOne', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              |Offres courantes
+              = t('referentials.title')
 
         #miOne.panel-collapse.collapse
           .list-group
-            = link_to root_path, class: "list-group-item #{(@localizationUrl == 'workbenches#index') ? 'active' : ''}" do
-              span Tableau de bord
-            = link_to '#', class: 'list-group-item' do
-              span Offre de mon organisation
-            = link_to '#', class: 'list-group-item' do
-              span Offre IDF
+            = link_to referentials_path, class: 'list-group-item' do
+              span = t('referentials.listing')
 
-      .menu-item.panel
-        .panel-heading
-          h4.panel-title
-            = link_to '#miTwo', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              |Espace de travail
-
-        #miTwo.panel-collapse.collapse
-          .list-group
-            = link_to '#', class: "list-group-item #{params[:controller] == 'workbenches' ? 'active' : ''}" do
-              span Jeux de données
-
-            - if @workbench
-              = link_to workbench_imports_path(@workbench), class: "list-group-item #{(params[:controller] == 'imports') ? 'active' : ''}" do
-                span Import
-            - else
-              = link_to '#', class: 'list-group-item disabled' do
-                span Import
-
-            /= link_to calendars_path, class: 'list-group-item' do
-            span Modèles de calendrier
-            = link_to '#', class: 'list-group-item' do
-              span Rapport de contrôle
-            = link_to '#', class: 'list-group-item' do
-              span Jeux de contrôle
-
-      .menu-item.panel
-        .panel-heading
-          h4.panel-title
-            = link_to '#miThree', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              |Données
-
-        #miThree.panel-collapse.collapse
-          - if @referential.try(:id) && respond_to?(:current_referential)
-            .list-group
-              .list-group-item
-                = (current_referential.name).upcase
-                .list-group
-                  = link_to referential_networks_path(current_referential), class: 'list-group-item' do
-                    span = t('networks.index.title')
-          
-                  = link_to referential_companies_path(current_referential), class: 'list-group-item' do
-                    span = t('companies.index.title')
-          
-                  = link_to '#', class: 'list-group-item disabled' do
-                    span Tracés
-          
-                  = link_to referential_time_tables_path(current_referential), class: 'list-group-item' do
-                    span = t('time_tables.index.title')
-
-          - else
-            .panel-body
-              em.text-muted
-                = "Sélectionnez un jeu de données pour accéder à plus de fonctionnalités"
-
-      .menu-item.panel
-        .panel-heading
-          h4.panel-title
-            = link_to '#miFour', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              |Synchronisation
-
-        #miFour.panel-collapse.collapse
-          .list-group
-            /= link_to line_referential_path(1), class: "list-group-item #{(@localizationUrl == 'line_referentials#show') ? 'active' : ''}" do
-
-            span Synchronisation iLICO
-            /= link_to stop_area_referential_path(1), class: "list-group-item #{(@localizationUrl == 'stop_area_referentials#show') ? 'active' : ''}" do
-
-            span Synchronisation iCAR
+            = link_to new_referential_path, class: 'list-group-item' do
+              span = t('referentials.create.title')
 
       .menu-item.panel
         .panel-heading
@@ -100,22 +30,12 @@
               
         #miFive.panel-collapse.collapse
           .list-group
-            = link_to Rails.application.config.try(:portal_url), target: '_blank', class: 'list-group-item' do
+            = link_to new_user_invitation_path, class: 'list-group-item' do
               span
-                span.fa.fa-2x.fa-circle
-                |Portail (POSTIF)
+                span.fa.fa-lg.fa-paper-plane
+                = t('devise.invitations.new.header')
 
-            = link_to Rails.application.config.try(:codifligne_url), target: '_blank', class: 'list-group-item' do
+            = link_to destroy_user_session_path, class: 'list-group-item' do
               span
-                span.fa.fa-2x.fa-circle
-                |iLICO
-
-            = link_to Rails.application.config.try(:reflex_url), target: '_blank', class: 'list-group-item' do
-              span
-                span.fa.fa-2x.fa-circle
-                |iCAR
-
-            = link_to '#', target: '_blank', class: 'list-group-item' do
-              span
-                span.fa.fa-2x.fa-circle
-                |Support
+                span.fa.fa-lg.fa-sign-out
+                = t('devise.sessions.signed_out')
