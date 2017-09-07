@@ -83,4 +83,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.edwig_api_host = "http://localhost:8080"
+  config.edwig_token = ENV['EDWIG_TOKEN']
 end
