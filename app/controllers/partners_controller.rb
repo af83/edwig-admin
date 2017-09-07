@@ -1,7 +1,7 @@
 class PartnersController < ApplicationController
 
   def show
-
+    @partner = referential.find_partner params[:id]
   end
 
   def new

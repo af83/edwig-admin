@@ -1,0 +1,20 @@
+/ PageHeader
+- header_params = ['map-marker',
+        t('attributes.partner') + " " + @partner.slug,]
+= pageheader(*header_params)
+
+/ PageContent
+.page_content
+  .row
+    .col-md-12
+      = link_to referential_path(@referential.id), class: 'btn btn-default back-button' do
+        em.fa.fa-arrow-left
+  .container-fluid
+    .row
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        = definition_list t('Informations Partner'),
+                t('attributes.slug') => @partner.slug,
+                t('partners.attributes.operationnal_status') => @partner.operationnal_status,
+                t('partners.attributes.service_started_at') => @partner.service_started_at,
+                t('partners.attributes.connector_types') => @partner.connector_types.join(", "),
+                t('partners.attributes.settings') => @partner.settings.to_a.join(", ")

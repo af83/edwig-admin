@@ -49,6 +49,9 @@
                     span.fa.fa-cog
                   ul.dropdown-menu
                     li
+                      = link_to referential_partner_path(@referential.id, partner.id), class: 'btn btn-default' do
+                        | Voir
+                    li
                       = link_to edit_referential_partner_path(@referential.id, partner.id), class: 'btn btn-default' do
                         | Editer
                     li.delete-action
