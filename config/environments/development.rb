@@ -55,5 +55,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.edwig_api_host = "http://localhost:8080"
-  config.edwig_token = "6ceab96a-8d97-4f2a-8d69-32569a38fc64"
+  config.edwig_token = ENV['EDWIG_TOKEN']
 end
