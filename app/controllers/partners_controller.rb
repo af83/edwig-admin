@@ -12,8 +12,9 @@ class PartnersController < ApplicationController
     @partner = referential.create_partner prepare_settings(params[:partner])
 
     if @partner.valid?
-      redirect_to referential_path(referential.id)
+      redirect_to referential_path(referential.id), flash: {notice: "Partner is saved"}
     else
+      flash[:error] = "Partner is invalid"
       render :new
     end
   end
@@ -28,8 +29,9 @@ class PartnersController < ApplicationController
     @partner.attributes = prepare_settings(params[:partner])
 
     if @partner.save
-      redirect_to referential_path(referential.id)
+      redirect_to referential_path(referential.id), flash: {notice: "Partner is saved"}
     else
+      flash[:error] = "Partner is invalid"
       render :edit
     end
   end

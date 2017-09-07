@@ -59,12 +59,15 @@ module Edwig
     end
 
     def save
-      if persisted?
-        server.put("_referentials/#{id}", to_api_json)
-      else
-        self.attributes = api_attributes(server.post("_referentials", to_api_json))
-        id.present?
-      end
+      updated_attributes =
+        if persisted?
+          server.put("_referentials/#{id}", to_api_json)
+        else
+          server.post("_referentials", to_api_json)
+        end
+      self.attributes = api_attributes(updated_attributes)
+
+      valid?
     end
 
     def destroy

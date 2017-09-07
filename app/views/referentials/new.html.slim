@@ -12,6 +12,7 @@
   .container-fluid
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        = errors_full_messages(@referential.errors)
         = form_tag referentials_path, method: :post do
           .row
             .col-lg-12

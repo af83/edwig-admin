@@ -6,6 +6,8 @@ module Edwig
     include ActiveAttr::TypecastedAttributes
     include ActiveAttr::AttributeDefaults
 
+    attribute :errors, default: {}
+
     def self.from_json(referential, data = {})
       return if data.nil?
 
@@ -32,7 +34,7 @@ module Edwig
     end
 
     def valid?
-      persisted?
+      persisted? && errors.empty?
     end
 
   end

@@ -32,14 +32,22 @@ module Edwig
       arguments << body if method.in?([:post, :put])
       arguments << headers
 
-      response = RestClient.send method, *arguments
+      response =
+        begin
+          RestClient.send method, *arguments
+        rescue RestClient::ExceptionWithResponse => err
+          log "RestClient::ExceptionWithResponse #{err.response.body}"
+
+          unless err.http_code.in?([406,400])
+            raise err
+          end
+
+          err.response
+        end
 
       log "#{response.code} #{response.body}"
 
       JSON.parse response
-    rescue RestClient::ExceptionWithResponse => err
-      log "RestClient::ExceptionWithResponse #{err.response.body}"
-      raise err
     end
 
   end

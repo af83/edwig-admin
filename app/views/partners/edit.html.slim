@@ -12,6 +12,7 @@
   .container-fluid
     .row
       .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        = errors_full_messages(@partner.errors)
         = form_tag referential_partner_path(@referential.id, @partner.id), method: :put do
           .col-lg-12
             .form-group
