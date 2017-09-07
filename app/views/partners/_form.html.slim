@@ -1,0 +1,36 @@
+.row
+  = errors_full_messages(@partner.errors)
+
+= form_tag @partner.persisted? ? referential_partner_path(@referential.id, @partner.id) : referential_partners_path(@referential.id), method: (@partner.persisted? ? :put : :post) do
+  .col-lg-12
+    .form-group
+      = label_tag :partner_slug
+      = text_field_tag "partner[slug]", nil, value: @partner.slug, class: "form-control"
+    .form-group
+      = label_tag :partner_connector_types
+      ul.list-group
+        - Edwig::Partner.connector_types.each do |connector|
+          li.list-group-item
+            = check_box_tag "partner[connector_types][]", connector, @partner.connector_types.include?(connector), class: "check-icon"
+            = label_tag nil, connector
+    .form-group
+      = label_tag :partner_settings
+      - @partner.settings.each_with_index do |(key, value), index|
+        .form-group
+          = text_field_tag "partner[settings][#{index}][key]", nil, value: key, class: "form-control", :placeholder => "settings key"
+          = text_field_tag "partner[settings][#{index}][value]", nil, value: value, class: "form-control", :placeholder => "settings value"
+        .form-group
+          button.btn.btn-danger.remove_partner_setting type="button"
+            span.glyphicon.glyphicon-minus aria-hidden="true"
+      #partner_setting_template.hidden
+        .form-group
+          = text_field_tag "partner[settings][index][key]", nil, class: "form-control", :placeholder => "settings key",  disabled: true
+          = text_field_tag "partner[settings][index][value]", nil, class: "form-control", :placeholder => "settings value", disabled: true
+        .form-group
+          button.btn.btn-danger.remove_partner_setting type="button"
+            span.glyphicon.glyphicon-minus aria-hidden="true"
+      button.btn.btn-primary.pull-right#add_partner_setting type="button"
+        span.glyphicon.glyphicon-plus aria-hidden="true"
+    .form-group
+      button.btn.btn-primary[type="submit"]
+        = t("partners.#{@partner.persisted? ? 'edit' : 'create'}.submit")

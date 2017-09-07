@@ -1,0 +1,15 @@
+.row
+  = errors_full_messages(@referential.errors)
+
+= form_tag @referential.persisted? ? referential_path(@referential.id) : referentials_path, method: (@referential.persisted? ? :put : :post) do
+  .row
+    .col-lg-12
+    .form-group
+      = label_tag :slug
+      = text_field_tag "referential[slug]", nil, value: @referential.slug, class: "form-control"
+    .form-group
+      = label_tag :tokens
+      = text_field_tag "referential[token_list]", nil, value: @referential.token_list, class: "form-control"
+    .form-group
+      button.btn.btn-primary[type="submit"]
+        = t("referentials.#{@referential.persisted? ? 'edit' : 'create'}.submit")
