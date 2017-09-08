@@ -28,6 +28,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.action_mailer.default_options = { from: 'Edwig Admin <edwig@af83.io>' }
+  config.action_mailer.smtp_settings = { address: 'mail.af83.priv' }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
