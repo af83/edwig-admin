@@ -22,6 +22,7 @@ module Edwig
       siri-general-message-subscription-collector
       siri-estimated-timetable-request-broadcaster
       siri-stop-monitoring-subscription-broadcaster
+      siri-lines-discovery-request-broadcaster
       siri-check-status-client
       siri-check-status-server
       }
