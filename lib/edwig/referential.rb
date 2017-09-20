@@ -58,6 +58,10 @@ module Edwig
       nil
     end
 
+    def save_partners
+      post("partners/save", {})
+    end
+
     def save
       updated_attributes =
         if persisted?

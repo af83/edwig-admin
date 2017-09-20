@@ -47,7 +47,7 @@ module Edwig
 
       log "#{response.code} #{response.body}"
 
-      JSON.parse response
+      JSON.parse response unless response.body.blank?
     end
 
   end

@@ -46,3 +46,4 @@
                       = link_to referential_path(referential.id), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"} do
                         span.fa.fa-trash.mr-xs
                         | Supprimer
+  = link_to(t('referentials.save.title'), db_save_referentials_path, method: :post, class: 'btn btn-link', data: {confirm: t('referentials.save.confirm')})

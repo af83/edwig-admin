@@ -6,6 +6,11 @@ fr:
   referentials:
     title: "Referential "
     listing: "Listes des Referentials"
+    save:
+      title: "Sauvegarder les Referentials"
+      confirm: "Etes-vous sûr de vouloir sauvegarder les Referentials dans la base de données ?"
+      success: "Les Referentials ont bien été sauvegardés"
+      error: "Erreur lors de la sauvegarde des Referentials : %{error}"
     create:
       title: "Créer un Referential"
       submit: "Créer"
@@ -18,6 +23,11 @@ fr:
       partner: "Partners"
   partners:
     title: "Liste des Partners pour le Referential : "
+    save:
+      title: "Sauvegarder les Partners"
+      confirm: "Etes-vous sûr de vouloir sauvegarder les Partners dans la base de données ?"
+      success: "Les Partners ont bien été sauvegardés"
+      error: "Erreur lors de la sauvegarde des Partners : %{error}"
     create:
       title: "Créer un Partner"
       submit: "Créer"

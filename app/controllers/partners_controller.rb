@@ -46,6 +46,16 @@ class PartnersController < ApplicationController
     redirect_to referential_path(referential.id)
   end
 
+  def db_save
+    response = referential.save_partners
+    if response
+      flash[:error] = t('partners.save.error', error: response["error"])
+    else
+      flash[:notice] = t('partners.save.success')
+    end
+    redirect_to referential_path(referential.id)
+  end
+
   private
 
   def prepare_settings(attributes)

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :referentials do
-    resources :partners
+    post :db_save, on: :collection
+    resources :partners do
+      post :db_save, on: :collection
+    end
   end
 end

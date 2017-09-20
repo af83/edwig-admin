@@ -41,6 +41,16 @@ class ReferentialsController < ApplicationController
     end
   end
 
+  def db_save
+    response = edwig_server.save_referentials
+    if response
+      flash[:error] = t('referentials.save.error', error: response["error"])
+    else
+      flash[:notice] = t('referentials.save.success')
+    end
+    redirect_to referentials_path
+  end
+
   def destroy
     referential = edwig_server.find_referential params[:id]
     referential.destroy

@@ -44,5 +44,9 @@ module Edwig
     def create_referential(attributes = {})
       Referential.new(self, attributes).tap(&:save)
     end
+
+    def save_referentials
+      post("_referentials/save", {})
+    end
   end
 end
