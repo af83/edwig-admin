@@ -17,10 +17,10 @@ build:
 	rm -rf vendor/bundle/ruby/*/cache
 
 install:
-	cp -a app bin gems public vendor config lib db ${DESTDIR}var/www/edwig-admin
-	cp -a Rakefile config.ru Gemfile Gemfile.lock .bundle ${DESTDIR}var/www/edwig-admin
-	cp debian/database.yml debian/production.rb debian/apache2.conf ${DESTDIR}etc/edwig-admin/
-	install --mode=755 debian/bundle-exec ${DESTDIR}var/www/edwig-admin/bin
+	cp -a app bin gems public vendor config lib db ${DESTDIR}/var/www/edwig-admin
+	cp -a Rakefile config.ru Gemfile Gemfile.lock .bundle ${DESTDIR}/var/www/edwig-admin
+	cp debian/database.yml debian/production.rb debian/apache2.conf ${DESTDIR}/etc/edwig-admin/
+	install --mode=755 debian/bundle-exec ${DESTDIR}/var/www/edwig-admin/bin
 
 clean:
 	rm -rf vendor/bundle
