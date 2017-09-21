@@ -1,0 +1,15 @@
+Source: edwig-admin
+Section: misc
+Priority: extra
+Maintainer: af83 devs <devs+debian@af83.com>
+Build-Depends: debhelper, cdbs, ruby2.3, ruby2.3-dev, libxml2-dev, libxslt1-dev, libpq-dev, libev-dev, git-core
+Standards-Version: 3.8.1
+Homepage: https://github.com/af83/edwig-admin/
+
+Package: edwig-admin
+Architecture: all
+Depends: ruby2.3, libpq5, libxml2
+Recommends: libapache2-mod-passenger
+Description: Web interface to manage edwig server
+ .
+ See <https://github.com/af83/edwig-admin/> for more info.

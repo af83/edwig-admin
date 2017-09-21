@@ -1,0 +1,2 @@
+etc/edwig-admin/database.yml var/www/edwig-admin/config/database.yml
+etc/edwig-admin/production.rb var/www/edwig-admin/config/environments/production.rb

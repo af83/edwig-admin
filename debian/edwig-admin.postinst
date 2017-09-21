@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+case "$1" in
+    configure)
+				cd /var/www/edwig-admin
+				bin/bundle-exec rake db:migrate
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "$0 called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#

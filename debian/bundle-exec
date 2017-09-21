@@ -1,0 +1,3 @@
+#!/bin/sh
+export SECRET_KEY_BASE=`head -c 2048 /dev/urandom | sha512sum | cut -f1 -d" "`
+RAILS_ENV=production GEM_HOME=gems `dirname $0`/bundle exec $@
