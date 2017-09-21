@@ -5,6 +5,14 @@
 - header_params << link_to(t('partners.create.title'), new_referential_partner_path(@referential.id), class: 'btn btn-default')
 = pageheader(*header_params)
 
+  .row.mb-sm
+    .col-lg-12.text-right
+      = link_to db_save_referential_partners_path(@referential.id),
+              method: :post,
+              data: {confirm: t('partners.save.confirm')},
+              class: 'btn btn-primary' do
+        = t('partners.save.title')
+
 / PageContent
 .page_content
   .row
@@ -58,4 +66,3 @@
                       = link_to referential_partner_path(@referential.id, partner.id), method: :delete, data: {confirm: "Are you sure you want to delete this partner ?"} do
                         span.fa.fa-trash.mr-xs
                         | Supprimer
-  = link_to(t('partners.save.title'), db_save_referential_partners_path(@referential.id), method: :post, class: 'btn btn-link', data: {confirm: t('partners.save.confirm')})
