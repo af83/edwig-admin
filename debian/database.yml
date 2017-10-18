@@ -3,4 +3,4 @@ production:
   encoding: unicode
   database: edwig
   user: edwig
-  password: edwig
+  password: @tobedefined@

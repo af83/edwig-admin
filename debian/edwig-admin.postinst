@@ -2,6 +2,13 @@
 
 case "$1" in
     configure)
+				# Source debconf library.
+				. /usr/share/debconf/confmodule
+
+				db_get edwig-admin/database/password
+				DATABASE_PASSWORD=$RET
+				sed -i "s/password: @tobedefined@/password: $DATABASE_PASSWORD/" /etc/edwig-admin/database.yml
+
 				cd /var/www/edwig-admin
 				bin/bundle-exec rake db:migrate
     ;;

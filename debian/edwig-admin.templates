@@ -1,0 +1,3 @@
+Template: edwig-admin/database/password
+Type: password
+Description: Enter the PostgreSQL account password to use
