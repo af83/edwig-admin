@@ -12,9 +12,9 @@
   .container-fluid
     .row
       .col-lg-6.col-md-6.col-sm-12.col-xs-12
-        = definition_list t('Informations Partner'),
-                t('attributes.slug') => @partner.slug,
-                t('partners.attributes.operationnal_status') => @partner.operationnal_status,
-                t('partners.attributes.service_started_at') => @partner.service_started_at,
-                t('partners.attributes.connector_types') => @partner.connector_types.join(", "),
-                t('partners.attributes.settings') => @partner.settings.to_a.join(", ")
+        = definition_list t('partners.informations'),
+                Edwig::Partner.human_attribute_name(:slug) => @partner.slug,
+                Edwig::Partner.human_attribute_name(:operational_status) => @partner.operationnal_status,
+                Edwig::Partner.human_attribute_name(:service_started_at) => @partner.service_started_at,
+                Edwig::Partner.human_attribute_name(:connector_types) => @partner.connector_types.join(", "),
+                Edwig::Partner.human_attribute_name(:settings) => @partner.settings.to_a.join(", ")
