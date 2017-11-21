@@ -8,7 +8,7 @@ fr:
       edit: "Editer"
       delete: "Supprimer"
   referentials:
-    title: "Referential "
+    title: "Referentiel "
     listing: "Liste des Referentiels"
     informations: "Informations Referentiel"
     save:
