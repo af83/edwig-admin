@@ -5,6 +5,7 @@ module Edwig
     include ActiveAttr::MassAssignment
     include ActiveAttr::TypecastedAttributes
     include ActiveAttr::AttributeDefaults
+    extend ActiveModel::Translation
 
     attribute :errors, default: {}
 
