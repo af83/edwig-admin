@@ -88,6 +88,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    choice (0.2.0)
     cocoon (1.2.10)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -182,6 +183,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails-jquery-tags-input (1.0.0)
@@ -221,6 +227,7 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    ruby-graphviz (1.2.3)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -308,6 +315,7 @@ DEPENDENCIES
   rails (~> 5.0.3)
   rails-assets-bootstrap-sass-official (~> 3.3.0)!
   rails-assets-footable (~> 2.0.3)!
+  rails-erd
   rails-jquery-tags-input
   rest-client (~> 2.0, >= 2.0.2)
   rspec-rails (~> 3.5)
