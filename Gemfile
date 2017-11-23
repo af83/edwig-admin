@@ -68,6 +68,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'rails-erd'
+
   # Use Capistrano for deployment
   gem 'capistrano-af83', af83: 'capistrano-af83'
 
