@@ -1,0 +1,18 @@
+fr:
+  users:
+    index:
+      title: Tous les utilisateurs
+      confirm_destroy: "Etes vous sûr de supprimer cet utilisateur ?"
+    actions:
+      invite: Inviter
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        created_at: "Création"
+        updated_at: "Modification"
+
+en:
+  users:
+    index:
+      title: All Users

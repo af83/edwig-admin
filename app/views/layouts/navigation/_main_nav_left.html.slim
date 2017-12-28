@@ -27,9 +27,14 @@
           h4.panel-title
             = link_to '#miFive', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
               |Outils
-              
+
         #miFive.panel-collapse.collapse
           .list-group
+            = link_to users_path, class: 'list-group-item' do
+              span
+                span.fa.fa-lg.fa-users
+                = t('users.index.title')
+
             = link_to new_user_invitation_path, class: 'list-group-item' do
               span
                 span.fa.fa-lg.fa-paper-plane

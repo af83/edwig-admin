@@ -1,6 +1,6 @@
 fr:
   application:
-    title: "Edwig-admin"
+    title: "Edwig Admin"
     invite_button: "Inviter"
     logout_button: "Déconnexion"
   actions:

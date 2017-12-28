@@ -7,11 +7,11 @@
 
     - if user_signed_in?
       .menu-item-group.pull-right
-        = link_to new_user_invitation_path, class: 'menu-item', data: { panel: 'toggle', target: '#operations_panel' }, title: 'Invitation' do
-          span.fa.fa-lg.fa-paper-plane
+        = link_to users_path, class: 'menu-item', data: { panel: 'toggle'  }, title: t('users.index.title') do
+          span.fa.fa-lg.fa-users
 
         = link_to '#', class: 'menu-item', data: { panel: 'toggle', target: '#profile_panel' }, title: 'Profil' do
-          /span = current_user.username
+          span = current_user.email
           span.fa.fa-lg.fa-user
 
 

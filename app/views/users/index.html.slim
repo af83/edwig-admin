@@ -1,0 +1,36 @@
+/ PageHeader
+- header_params = ['users', t('.title'), '']
+- header_params << link_to(t('users.actions.invite'), new_user_invitation_path, class: 'btn btn-default')
+= pageheader(*header_params)
+
+/ PageContent
+.page_content
+  .container-fluid
+    - if @users.any?
+    .row
+      .col-lg-12
+        table.table.has-filter
+          thead
+            tr
+              th
+                = User.human_attribute_name(:email)
+              th
+                = User.human_attribute_name(:created_at)
+              th
+                = User.human_attribute_name(:updated_at)
+              th
+          tbody
+          - @users.each do |user|
+            tr
+              td = user.email
+              td = user.created_at
+              td = user.updated_at
+              td.actions
+                .btn-group
+                  .btn.dropdown-toggle data-toggle="dropdown"
+                    span.fa.fa-cog
+                  ul.dropdown-menu
+                    li.delete-action
+                      = link_to user_path(user.id), method: :delete, data: {confirm: t('.confirm_destroy') } do
+                        span.fa.fa-trash.mr-xs
+                        = t('actions.delete')

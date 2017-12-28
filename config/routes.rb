@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       post :db_save, on: :collection
     end
   end
+
+  resources :users
 end
