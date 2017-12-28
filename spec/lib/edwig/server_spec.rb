@@ -100,7 +100,8 @@ RSpec.describe Edwig::Server do
     it "should submit to the API the new Referential attributes" do
       expected_body = {
         "Slug": "test",
-        "Tokens": [ "secret" ]
+        "Tokens": [ "secret" ],
+        "Settings": {}
       }
       expect(server).to receive(:post).with("_referentials", expected_body)
 
