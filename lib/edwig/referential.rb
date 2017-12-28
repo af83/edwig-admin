@@ -35,6 +35,15 @@ module Edwig
     attribute :next_reload_at, type: DateTime
     attribute :partner_ids, default: []
     alias_method :'partners=', :'partner_ids='
+    attribute :settings, default: {}
+
+    def model_reload_at
+      settings["model.reload_at"]
+    end
+
+    def model_reload_at=(value)
+      (self.settings ||= {})["model.reload_at"] = value
+    end
 
     def token_list
       tokens.join(',')
@@ -80,7 +89,7 @@ module Edwig
     end
 
     def to_api_json
-      { "Slug": slug, "Tokens": tokens }
+      { "Slug": slug, "Tokens": tokens, "Settings": settings }
     end
 
   end
