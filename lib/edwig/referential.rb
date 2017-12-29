@@ -83,6 +83,14 @@ module Edwig
       valid?
     end
 
+    def valid?
+      errors[:slug] = ["only accept alphanumeric characters"] unless slug.blank? || slug =~ /\A[a-zA-Z_0-9-]+\Z/
+      errors[:model_reload_at] = ["must use HH:MM format"] unless model_reload_at =~ /\A[0-9]{2}:[0-9]{2}\Z/
+      errors[:token_list] = ["can't be empty (via edwig admin)"] if token_list.blank?
+      super
+    end
+
+
     def destroy
       server.delete "_referentials/#{id}"
       # TODO
