@@ -1,0 +1,33 @@
+fr:
+  referentials:
+    title: "Referentiel "
+    listing: "Liste des Referentiels"
+    informations: "Informations Referentiel"
+    save:
+      title: "Sauvegarder les Referentiels"
+      confirm: "Etes-vous sûr de vouloir sauvegarder les Referentiels dans la base de données ?"
+      success: "Les Referentiels ont bien été sauvegardés"
+      error: "Erreur lors de la sauvegarde des Referentiels : %{error}"
+    create:
+      title: "Créer un Referentiel"
+      submit: "Créer"
+    edit:
+      title: "Editer un Referentiel"
+      submit: "Editer"
+
+en:
+  referentials:
+    title: "Referential "
+    listing: "Referential Lists"
+    informations: "Referential Information"
+    save:
+      title: "Save Referentials"
+      confirm: "Are you sure you want to save the Referentials in the database?"
+      success: "The Referentials have been saved"
+      error: "Error when saving Referentials: %{error}"
+    create:
+      title: "Create a Referential"
+      submit: "Create"
+    edit:
+      title: "Edit a Referential"
+      submit: "Edit"

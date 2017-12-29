@@ -7,35 +7,6 @@ en:
       show: "Show"
       edit: "Edit"
       delete: "Delete"
-  referentials:
-    title: "Referential "
-    listing: "Referential Lists"
-    informations: "Referential Information"
-    save:
-      title: "Save Referentials"
-      confirm: "Are you sure you want to save the Referentials in the database?"
-      success: "The Referentials have been saved"
-      error: "Error when saving Referentials: %{error}"
-    create:
-      title: "Create a Referential"
-      submit: "Create"
-    edit:
-      title: "Edit a Referential"
-      submit: "Edit"
-  partners:
-    title: "List of Referential Partners: "
-    informations: "Partner Information"
-    save:
-      title: "Save Partners"
-      confirm: "Are you sure you want to save the Partners in the database?"
-      success: "The Partners have been saved"
-      error: "Error when saving Partners: %{error}"
-    create:
-      title: "Create a Partner"
-      submit: "Create"
-    edit:
-      title: "Edit a Partner"
-      submit: "Edit"
   attributes:
     id: "ID"
     slug: "Slug"

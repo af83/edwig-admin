@@ -7,35 +7,6 @@ fr:
       show: "Voir"
       edit: "Editer"
       delete: "Supprimer"
-  referentials:
-    title: "Referentiel "
-    listing: "Liste des Referentiels"
-    informations: "Informations Referentiel"
-    save:
-      title: "Sauvegarder les Referentiels"
-      confirm: "Etes-vous sûr de vouloir sauvegarder les Referentiels dans la base de données ?"
-      success: "Les Referentiels ont bien été sauvegardés"
-      error: "Erreur lors de la sauvegarde des Referentiels : %{error}"
-    create:
-      title: "Créer un Referentiel"
-      submit: "Créer"
-    edit:
-      title: "Editer un Referentiel"
-      submit: "Editer"
-  partners:
-    title: "Liste des Partenaires pour le Referentiel : "
-    informations: "Informations Partenaire"
-    save:
-      title: "Sauvegarder les Partenaires"
-      confirm: "Etes-vous sûr de vouloir sauvegarder les Partenaires dans la base de données ?"
-      success: "Les Partenaires ont bien été sauvegardés"
-      error: "Erreur lors de la sauvegarde des Partenaires : %{error}"
-    create:
-      title: "Créer un Partenaire"
-      submit: "Créer"
-    edit:
-      title: "Editer un Partenaire"
-      submit: "Editer"
   attributes:
     id: "ID"
     slug: "Slug"

@@ -1,0 +1,31 @@
+fr:
+  partners:
+    title: "Liste des Partenaires pour le Referentiel : "
+    informations: "Informations Partenaire"
+    save:
+      title: "Sauvegarder les Partenaires"
+      confirm: "Etes-vous sûr de vouloir sauvegarder les Partenaires dans la base de données ?"
+      success: "Les Partenaires ont bien été sauvegardés"
+      error: "Erreur lors de la sauvegarde des Partenaires : %{error}"
+    create:
+      title: "Créer un Partenaire"
+      submit: "Créer"
+    edit:
+      title: "Editer un Partenaire"
+      submit: "Editer"
+
+en:
+  partners:
+    title: "List of Referential Partners: "
+    informations: "Partner Information"
+    save:
+      title: "Save Partners"
+      confirm: "Are you sure you want to save the Partners in the database?"
+      success: "The Partners have been saved"
+      error: "Error when saving Partners: %{error}"
+    create:
+      title: "Create a Partner"
+      submit: "Create"
+    edit:
+      title: "Edit a Partner"
+      submit: "Edit"
