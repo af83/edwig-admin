@@ -16,3 +16,12 @@ en:
   users:
     index:
       title: All Users
+      confirm_destroy: "Are you sure to delete this user ?"
+    actions:
+      invite: Invite
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        created_at: "Creation"
+        updated_at: "Update"
