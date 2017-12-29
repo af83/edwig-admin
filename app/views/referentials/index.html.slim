@@ -33,7 +33,7 @@
           - @referentials.each do |referential|
             tr
               td.slug = link_to referential.slug, referential_path(referential.id)
-              td = l referential.next_reload_at
+              td = referential.next_reload_at ? l(referential.next_reload_at) : '-'
               td.tokens = referential.tokens.count
               td = referential.partner_ids.count
               td.actions
