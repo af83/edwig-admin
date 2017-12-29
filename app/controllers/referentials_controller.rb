@@ -18,9 +18,9 @@ class ReferentialsController < ApplicationController
     @referential = edwig_server.create_referential params[:referential]
 
     if @referential.valid?
-      redirect_to referentials_path, flash: {notice: "Referential is saved"}
+      redirect_to referentials_path, flash: {notice: t("referentials.flash_messages.valid")}
     else
-      flash[:error] = "Referential is invalid"
+      flash[:error] = t("referentials.flash_messages.invalid")
       render :new
     end
   end
@@ -34,9 +34,9 @@ class ReferentialsController < ApplicationController
     @referential.attributes = params[:referential]
 
     if @referential.save
-      redirect_to referentials_path, flash: {notice: "Referential is saved"}
+      redirect_to referentials_path, flash: {notice: t("referentials.flash_messages.valid")}
     else
-      flash[:error] = "Referential is invalid"
+      flash[:error] = t("referentials.flash_messages.invalid")
       render :edit
     end
   end
@@ -44,9 +44,9 @@ class ReferentialsController < ApplicationController
   def db_save
     response = edwig_server.save_referentials
     if response
-      flash[:error] = t('referentials.save.error', error: response["error"])
+      flash[:error] = t('referentials.flash_messages.db_save_error', error: response["error"])
     else
-      flash[:notice] = t('referentials.save.success')
+      flash[:notice] = t('referentials.flash_messages.db_save_success')
     end
     redirect_to referentials_path
   end

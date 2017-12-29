@@ -12,9 +12,9 @@ class PartnersController < ApplicationController
     @partner = referential.create_partner prepare_settings(params[:partner])
 
     if @partner.valid?
-      redirect_to referential_path(referential.id), flash: {notice: "Partner is saved"}
+      redirect_to referential_path(referential.id), flash: {notice: t("partners.flash_messages.valid")}
     else
-      flash[:error] = "Partner is invalid"
+      flash[:error] = t("partners.flash_messages.invalid")
       render :new
     end
   end
@@ -29,9 +29,9 @@ class PartnersController < ApplicationController
     @partner.attributes = prepare_settings(params[:partner])
 
     if @partner.save
-      redirect_to referential_path(referential.id), flash: {notice: "Partner is saved"}
+      redirect_to referential_path(referential.id), flash: {notice: t("partners.flash_messages.valid")}
     else
-      flash[:error] = "Partner is invalid"
+      flash[:error] = t("partners.flash_messages.invalid")
       render :edit
     end
   end
@@ -49,9 +49,9 @@ class PartnersController < ApplicationController
   def db_save
     response = referential.save_partners
     if response
-      flash[:error] = t('partners.save.error', error: response["error"])
+      flash[:error] = t('partners.flash_messages.db_save_error', error: response["error"])
     else
-      flash[:notice] = t('partners.save.success')
+      flash[:notice] = t('partners.flash_messages.db_save_success')
     end
     redirect_to referential_path(referential.id)
   end

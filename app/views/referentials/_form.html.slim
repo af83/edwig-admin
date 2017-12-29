@@ -5,14 +5,14 @@
   .row
     .col-lg-12
     .form-group
-      = label_tag :slug
+      = label_tag :slug, Edwig::Referential.human_attribute_name(:slug)
       = text_field_tag "referential[slug]", nil, value: @referential.slug, class: "form-control"
     .form-group
-      = label_tag :tokens
+      = label_tag :tokens, Edwig::Referential.human_attribute_name(:token_list)
       = text_field_tag "referential[token_list]", nil, value: @referential.token_list, class: "form-control"
     .form-group
-      = label_tag :model_reload_at
+      = label_tag :model_reload_at, Edwig::Referential.human_attribute_name(:model_reload_at)
       = text_field_tag "referential[model_reload_at]", nil, value: @referential.model_reload_at, class: "form-control"
     .form-group
       button.btn.btn-primary[type="submit"]
-        = t("referentials.#{@referential.persisted? ? 'edit' : 'create'}.submit")
+        = t("referentials.#{@referential.persisted? ? 'edit' : 'new'}.submit")

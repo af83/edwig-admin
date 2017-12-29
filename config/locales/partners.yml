@@ -1,18 +1,52 @@
 fr:
   partners:
     title: "Liste des Partenaires pour le Referentiel : "
-    informations: "Informations Partenaire"
     save:
       title: "Sauvegarder les Partenaires"
       confirm: "Etes-vous sûr de vouloir sauvegarder les Partenaires dans la base de données ?"
-      success: "Les Partenaires ont bien été sauvegardés"
-      error: "Erreur lors de la sauvegarde des Partenaires : %{error}"
-    create:
+    show:
+      title: "Partenaire %{slug}"
+      informations: "Informations du Partenaire"
+    new:
       title: "Créer un Partenaire"
       submit: "Créer"
     edit:
       title: "Editer un Partenaire"
       submit: "Editer"
+    form:
+      setting_key: "Nom du paramètre"
+      setting_value: "Valeur du paramètre"
+    flash_messages:
+      invalid: "Certaines informations du Partenaire ne sont pas valides"
+      valid: "Le Partenaire est modifié"
+      db_save_success: "Les Partenaires ont bien été sauvegardés"
+      db_save_error: "Erreur lors de la sauvegarde des Partenaires : %{error}"
+    actions:
+      confirm_delete: "Etes-vous sûr de vouloir supprimer ce Partenaire ?"
+    # connectors:
+    #   siri-check-status-client: "CheckStatus (client)"
+    #   siri-check-status-server: "CheckStatus (serveur)"
+    #   siri-estimated-timetable-request-broadcaster: "EstimatedTimeTable (Diffuseur par requête)"
+    #   siri-general-message-request-broadcaster: "GeneralMessage (Diffuseur par requête)"
+    #   siri-general-message-request-collector: "GeneralMessage (Collecteur par requête)"
+    #   siri-general-message-subscription-broadcaster: "GeneralMessage (Diffuseur par reqûete)"
+    #   siri-general-message-subscription-collector: "GeneralMessage (Collecteur par abonnement)"
+    #   siri-lines-discovery-request-broadcaster: "LinesDiscovery (Diffuseur par requête)"
+    #   siri-service-request-broadcaster: "GetSiri (Diffuseur par réquête)"
+    #   siri-stop-monitoring-request-broadcaster: "StopMonitoring (Diffuseur par requête)"
+    #   siri-stop-monitoring-request-collector: "StopMonitoring (Collecteur par requête)"
+    #   siri-stop-monitoring-subscription-broadcaster: "StopMonitoring (Diffuseur par abonnement)"
+    #   siri-stop-monitoring-subscription-collector: "StopMonitoring (Collecteur par abonnement)"
+    #   siri-stop-points-discovery-request-broadcaster: "StopPointsDiscovery (Diffuseur par réquête)"
+  activemodel:
+    attributes:
+      edwig/partner:
+        id: "ID"
+        slug: "Label"
+        operational_status: "Status"
+        service_started_at: "Relance du service"
+        connector_types: "Connecteurs"
+        settings: "Paramètres"
 
 en:
   partners:

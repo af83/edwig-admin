@@ -1,7 +1,7 @@
 - @localizationUrl = "#{params[:controller]}##{params[:action]}"
 
 .nav-menu#menu_left
-  .openMenu title='Ouvrir le menu'
+  .openMenu title=t('menu.open')
 
   .menu-content
     .closeMenu title='Fermer le menu'
@@ -12,21 +12,21 @@
         .panel-heading
           h4.panel-title
             = link_to '#miOne', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              = t('referentials.title')
+              = t('menu.referentials')
 
         #miOne.panel-collapse.collapse
           .list-group
             = link_to referentials_path, class: 'list-group-item' do
-              span = t('referentials.listing')
+              span = t('referentials.index.title')
 
             = link_to new_referential_path, class: 'list-group-item' do
-              span = t('referentials.create.title')
+              span = t('referentials.new.title')
 
       .menu-item.panel
         .panel-heading
           h4.panel-title
             = link_to '#miFive', data: { toggle: 'collapse', parent: '#menu-items' }, 'aria-expanded' => 'false' do
-              |Outils
+              = t('menu.tools')
 
         #miFive.panel-collapse.collapse
           .list-group

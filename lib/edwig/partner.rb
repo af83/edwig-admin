@@ -31,12 +31,16 @@ module Edwig
     attribute :id
     attribute :slug
     attribute :operationnal_status
-    attribute :service_started_at
+    attribute :service_started_at, type: DateTime
     attribute :connector_types, default: []
     attribute :settings, default: {}
 
     def partner_status=(attributes = {})
       self.attributes = attributes.transform_keys(&:underscore)
+    end
+
+    def service_started_at
+      @service_started_at if @service_started_at.to_i > 0
     end
 
     def save
@@ -57,6 +61,10 @@ module Edwig
 
     def to_api_json
       { "Slug": slug, "ConnectorTypes": connector_types, "Settings": settings }
+    end
+
+    def self.human_connector_name(connector_type)
+      I18n.translate connector_type, scope: "partners.connectors", default: connector_type
     end
 
   end

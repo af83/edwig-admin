@@ -1,8 +1,6 @@
 / PageHeader
-- header_params = ['map-marker',
-        t('referentials.title'),
-        '']
-- header_params << link_to(t('referentials.create.title'), new_referential_path, class: 'btn btn-default')
+- header_params = ['map-marker', t('.title'), '']
+- header_params << link_to(t('referentials.new.title'), new_referential_path, class: 'btn btn-default')
 = pageheader(*header_params)
 
   .row.mb-sm
@@ -27,15 +25,15 @@
               th
                 = Edwig::Referential.human_attribute_name(:next_reload_at)
               th
-                = Edwig::Referential.human_attribute_name(:token)
+                = Edwig::Referential.human_attribute_name(:token_list)
               th
-                = Edwig::Referential.human_attribute_name(:partner)
+                = Edwig::Referential.human_attribute_name(:partners)
               th
           tbody
           - @referentials.each do |referential|
             tr
-              td.slug = referential.slug
-              td = referential.next_reload_at
+              td.slug = link_to referential.slug, referential_path(referential.id)
+              td = l referential.next_reload_at
               td.tokens = referential.tokens.count
               td = referential.partner_ids.count
               td.actions
@@ -53,6 +51,6 @@
                           span
                             = t('actions.edit')
                     li.delete-action
-                      = link_to referential_path(referential.id), method: :delete, data: {confirm: "Are you sure you want to delete this referential ?"} do
+                      = link_to referential_path(referential.id), method: :delete, data: {confirm: t('referentials.actions.confirm_delete')} do
                         span.fa.fa-trash.mr-xs
                         = t('actions.delete')

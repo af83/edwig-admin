@@ -1,19 +1,35 @@
 fr:
   referentials:
-    title: "Referentiel "
-    listing: "Liste des Referentiels"
-    informations: "Informations Referentiel"
+    index:
+      title: "Liste des Référentiels"
     save:
-      title: "Sauvegarder les Referentiels"
-      confirm: "Etes-vous sûr de vouloir sauvegarder les Referentiels dans la base de données ?"
-      success: "Les Referentiels ont bien été sauvegardés"
-      error: "Erreur lors de la sauvegarde des Referentiels : %{error}"
-    create:
-      title: "Créer un Referentiel"
+      title: "Sauvegarder les Référentiels"
+      confirm: "Etes-vous sûr de vouloir sauvegarder les Référentiels dans la base de données ?"
+    show:
+      title: "Référentiel %{slug}"
+      informations: "Informations du Référentiel"
+    new:
+      title: "Créer un Référentiel"
       submit: "Créer"
     edit:
-      title: "Editer un Referentiel"
+      title: "Editer un Référentiel"
       submit: "Editer"
+    flash_messages:
+      invalid: "Certaines informations du Référentiel ne sont pas valides"
+      valid: "Le Référentiel est modifié"
+      db_save_success: "Les Référentiels ont bien été sauvegardés"
+      db_save_error: "Erreur lors de la sauvegarde des Référentiels : %{error}"
+    actions:
+      confirm_delete: "Etes-vous sûr de vouloir supprimer ce Référentiel ?"
+  activemodel:
+    attributes:
+      edwig/referential:
+        id: "ID"
+        slug: "Label"
+        token_list: "Clés d'API"
+        next_reload_at: "Prochain Rechargement"
+        model_reload_at: "Heure de Rechargement"
+        partners: "Partenaires"
 
 en:
   referentials:
