@@ -16,12 +16,13 @@ module Edwig
       siri-stop-monitoring-request-collector
       siri-stop-monitoring-request-broadcaster
       siri-stop-monitoring-subscription-collector
-      siri-general-message-subscription-broadcaster
+      siri-stop-monitoring-subscription-broadcaster
       siri-general-message-request-collector
       siri-general-message-request-broadcaster
       siri-general-message-subscription-collector
+      siri-general-message-subscription-broadcaster
       siri-estimated-timetable-request-broadcaster
-      siri-stop-monitoring-subscription-broadcaster
+      siri-estimated-timetable-subscription-broadcaster
       siri-lines-discovery-request-broadcaster
       siri-check-status-client
       siri-check-status-server
