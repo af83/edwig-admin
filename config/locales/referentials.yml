@@ -27,6 +27,7 @@ fr:
         id: "ID"
         slug: "Label"
         token_list: "Clés d'API"
+        token: "Clés d'API"
         next_reload_at: "Prochain Rechargement"
         model_reload_at: "Heure de Rechargement"
         partners: "Partenaires"
