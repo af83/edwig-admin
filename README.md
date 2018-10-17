@@ -1,4 +1,5 @@
 # Edwig_admin
+<a href="https://codeclimate.com/github/af83/edwig-admin/maintainability"><img src="https://api.codeclimate.com/v1/badges/415c9e55281acbafae9a/maintainability" /></a>
 
 Ruby 2.2.6
 
