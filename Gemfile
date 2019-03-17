@@ -5,7 +5,7 @@ git_source(:af83) { |name| "git@github.com:af83/#{name}.git" }
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7.1'
+gem 'rails', '~> 5.1.6.2'
 # Use sqlite3 as the database for Active Record
 gem 'postgresql', '~> 1.0'
 # Use Puma as the app server
@@ -56,7 +56,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl', '~> 4.7'
+  gem 'factory_bot'
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'capybara'
   gem 'fakeweb'
