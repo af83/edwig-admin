@@ -1,5 +1,7 @@
 fr:
   devise:
+    failure:
+      invited: "You have a pending invitation, accept it to finish creating your account."
     invitations:
       send_instructions: "Un e-mail d'invitation a été envoyé à %{email}."
       invitation_token_invalid: "Le jeton d'invitation fourni n'est pas valide!"
